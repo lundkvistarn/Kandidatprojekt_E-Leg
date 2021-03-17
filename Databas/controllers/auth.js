@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { promisify } = require('util');
 
 //connectar till databasen
 const db = mysql.createConnection({
@@ -34,20 +35,22 @@ exports.login = async (req, res) => {
             else {
                 const id = results[0].id;
 
-                //cookien får id - AL
-                const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
+                //create token for personal id - AL
+                const token = jwt.sign({ id: id }, process.env.JWT_SECRET, { 
                    expiresIn: process.env.JWT_EXPIRES_IN
                 });
                 console.log("The token is: " + token);
 
+                //options för cookien
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60* 60* 1000
                     ),
                     httpOnly: true //kan bara ge cookie om usern är inne på en http sida - AL
                 }
+                //skickar token till client som en cookie
                 res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/");
+                res.status(200).redirect("/profile");
             }
             
 
@@ -97,4 +100,46 @@ exports.register = (req, res) => {
             }
         })
     });
+}
+
+exports.isLoggedIn = async (req, res, next) => {
+    //console.log(req.cookies);
+
+    //om det finns en cookie med namnet jwt - AL
+    if (req.cookies.jwt) {
+        try {
+            //1) verify token
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //jämför userns cookie med lösenordet vi använde för att skapa token vi har sparat i env
+            console.log(decoded);
+
+            //check if the user still exists - AL
+            db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                //om det inte finns något resultat - AL
+                if (!result) {
+                    return next();
+                }
+
+                //skapar ny variabel user med all info om den inloggade usern - AL
+                req.user = result[0];
+                return next();
+            });
+        } catch (error) {
+            console.log(error);
+            return next();
+        }
+    } else { //om det inte finns en cookie går den vidare  - AL
+        next();
+    } 
+}
+
+//när användare klickar på logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
+exports.logout = async (req, res) => {
+    res.cookie('jwt', 'logout', {
+        expires: new Date(Date.now() + 2 * 1000),
+        httpOnly: true //kan bara göras från en http browser, skyddar mot attacker  - AL
+    });
+
+    res.status(200).redirect('/');
 }

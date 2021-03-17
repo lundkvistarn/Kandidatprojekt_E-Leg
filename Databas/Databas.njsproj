@@ -37,6 +37,9 @@
     <Content Include="demo_db_connection.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="middleware.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\style.css">
       <SubType>Code</SubType>
     </Content>
@@ -53,6 +56,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\login.hbs">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\profile.hbs">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\register.hbs">

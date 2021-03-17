@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
+
 dotenv.config({ path: './.env' });
 
 const app = express();
@@ -22,7 +23,7 @@ const db = mysql.createConnection({
 const publicDirectory = path.join(__dirname, './public'); //define where all public directory is - AL
 app.use(express.static(publicDirectory)); //säger åt server att använda publicdirextory - AL
 
-//parse URL-encoded bodies (as sent by HTML forms) - AL
+//parse URL-encoded bodies (as sent by HTML forms), vi kan använda det user skriver i forms i req - AL
 app.use(express.urlencoded({ extended: false }));
 //parse JSON bodies (as sent byt API clients) - AL
 app.use(express.json());
@@ -77,3 +78,4 @@ app.use('/auth', require('./routes/auth'));
 app.listen(port, () => {
     console.log("server started on port 1337");
 });
+
