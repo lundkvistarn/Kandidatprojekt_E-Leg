@@ -1,0 +1,65 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+  background-color:#b6d1fa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#wrapper {
+    width: 50vw;
+    margin-top: 5vh;
+}
+
+
+#logga {
+    float:left;
+	width: 10vw;
+    margin-left: 15%;
+	height: 20vh;
+	background-repeat: no-repeat;
+	background-image: url("../img/logo_identi.svg");
+}
+h2 {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 1vh;
+    font-size: 4vw;
+  	color: rgba(0, 0, 0, 0.6);
+}
+
+
+.square {
+	/*storlek*/
+	width: 85vw;
+	/*position*/
+    margin-left: 5vw;
+    margin-top: 15vh;
+	/*utseende*/
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+    padding-left: 2vw;
+	/*Font*/ 
+
+}
+#namn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3vw;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 4vh;
+}
+
+/* TABLE */
+#kontakt {
+    width: 100%;
+
+}
+
+.introduktion {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+}
+.introImg {
+    width: 8vw;
+    height: 15vh;
+}
