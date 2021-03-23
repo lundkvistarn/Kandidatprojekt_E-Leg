@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body {
-  background-color:#b6d1fa;
+	background-color:#34F3F6;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,10 +13,15 @@ body {
 
 
 #logga {
-    float:left;
+	/*storlek*/
 	width: 10vw;
-    margin-left: 15%;
 	height: 20vh;
+
+	/*position*/
+    margin-left: 15%;
+	float:left;
+
+	/*utseende*/
 	background-repeat: no-repeat;
 	background-image: url("../img/logo_identi.svg");
 }
@@ -30,13 +35,16 @@ h2 {
 	/*storlek*/
 	height: 60vh;
 	width: 80vw;
+
 	/*position*/
     margin-left: 5vw;
     margin-top: 15vh;
+
 	/*utseende*/
 	background-color: rgba(255, 255, 255, 0.9);
 	border: 2px solid rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
+	
 	/*Font*/ 
     padding-left: 1vw;
     padding-right: 1vh;

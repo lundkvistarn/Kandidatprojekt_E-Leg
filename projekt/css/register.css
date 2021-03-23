@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body {
-  background-color:#b6d1fa;
-  font-family: 'Montserrat', sans-serif;
+    background-color:#34F3F6;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #wrapper {
@@ -13,33 +13,36 @@ body {
     margin-top: 30vh;
 }
 #logga {
-    float:left;
-	width: 10vw;
+    /*storlek*/
+    width: 10vw;
+    height: 20vh;
+    /*position*/
     margin-left: 30%;
-	height: 20vh;
-	background-repeat: no-repeat;
-	background-image: url("../img/logo_identi.svg");
+    float:left;
+    /*utseende*/
+    background-repeat: no-repeat;
+    background-image: url("../img/logo_identi.svg");
 }
 h2 {
-	font-family: 'Montserrat', sans-serif;
-	margin-top: 1vh;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1vh;
     font-size: 4vw;
-  	color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 .square {
-	/*storlek*/
-	height: 70vh;
-	width: 23vw;
-	/*position*/
+    /*storlek*/
+    height: 70vh;
+    width: 23vw;
+    /*position*/
     float:right;
     margin-right: 20vw;
     margin-top: 10vh;
-	/*utseende*/
-	background-color: rgba(255, 255, 255, 1.0);
-	border: 2px solid rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
+    /*utseende*/
+    background-color: rgba(255, 255, 255, 1.0);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2); 
-	/*Font*/ 
+    /*Font*/ 
 
 }
 
@@ -49,28 +52,34 @@ h2 {
     margin-left: 2.5vw;
 }
 .inputLog {
+    /*storlek*/
     width: 16vw;
     height: 8vh;
+    /*position*/
     padding-left: 1vw;
     margin-top: 3vh;
+    /*utseende*/
     font-family: 'Montserrat', sans-serif;
-   /* border: 1px solid rgba(0, 0, 0, 0.9);*/   
-    border:none;
+    border:none;    /* border: 1px solid rgba(0, 0, 0, 0.9);*/ 
     border-radius: 3px;
     background-color: rgba(225, 225, 225, 0.7);
     color:black;
     /*box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2); */
 }
 #regIn {
+    /*storlek*/
     width: 17vw;
     height: 10vh;
-    background-color: #68BDD8;
+    /*position*/
+
     margin-top: 4vh;
+    /*utseende*/
+    background-color: #68BDD8;
     font-family: 'Montserrat', sans-serif;
-    border: none;
+    border: none;   /* border: 1px solid rgba(0, 0, 0, 0.9); */
     color: white;
     border-radius: 3px;
-   /* border: 1px solid rgba(0, 0, 0, 0.9); */
+   
 }
 #logIn:hover {
     opacity: 0.8;
