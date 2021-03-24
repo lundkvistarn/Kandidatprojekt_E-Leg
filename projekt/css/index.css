@@ -1,63 +1,65 @@
 
 /* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); 
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap%27');
+
 
 body {
   background-color:#34F3F6;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
-#logga {
-    /*storlek*/
-    width: 200px;       /*8vw;*/
-    height:150px;         /*15vh;*/
-    /*utseende*/
-    margin-top: 1vh;
-    margin-left: 8vw;
-    background-repeat: no-repeat;
-    background-image: url("../img/logo_identi.svg");
+#flexContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
-.square {
+
+#square {
     /*storlek*/
     width: 427px;       /*23vw;*/
-
     /*position*/
-    margin-left: 38vw;
-    margin-top: 10vh;
+    margin: auto;
+    margin-top: 4vh;
 
     /*utseende*/
     background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
-
-    /*Font*/ 
-
 }
-#namn {
+#logga {
+    /*storlek*/
+    width: 150px;       /*8vw;*/
+    height:150px;         /*15vh;*/
+    /*utseende*/
+    margin:auto;
+    margin-top: 2vh;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo_identi.svg");
+    display: flex;
+}
+#loggaNamn {
     font-family: 'Montserrat', sans-serif;
     font-size: 55px;        /*3vw;*/
-    color: #34F3F6;;;
-    margin-left: 13vh;
-    margin-top: 1vh;
-    margin-bottom: 0vh;
+    color: #34F3F6;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 
 /* LOG IN */
 #wraplog {
-    margin-top: 3vh; 
-    margin-left: 2.5vw;
+   text-align: center;
 }
 .inputLog {
     /*storlek*/
     width: 307px;          /*16vw;*/
     height: 5vh;
-
     /*position*/
     padding-left: 1vw;
     margin-top: 2vh;
-
     /*utseende*/
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.9);
     border-radius: 3px;
     box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2);
@@ -68,11 +70,10 @@ body {
     height: 6vh;
 
     /*position*/
-    margin-top: 4vh;
-
+    margin-top: 2vh;
     /*utseende*/
     background-color: #15415C;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     border: none;
     color: white;
     border-radius: 3px;
@@ -82,7 +83,7 @@ body {
     opacity: 0.8;
 }
 #eller {
-    margin-left: -0.8vw;
+   margin:auto;
 }
 .line {
     width: 155px;       /*8vw;*/
@@ -95,17 +96,18 @@ body {
     width: 410px;       /*22vw;*/
 
     /*position*/
-    position: fixed;
-    margin-left: 38vw;
-    margin-top: 2vh;
+    display:flex;
+    margin:auto;
+    margin-top: 10px;
+    text-align:center;
 
     /*utseende*/
     background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
-    font-size: 2.5vh;
     padding-left: 1vw;
+
 }
 
 
@@ -117,10 +119,9 @@ body {
  
     /*position*/
     position: absolute;
-    bottom: 1vh;
+    bottom: 0vh;
 
     /*utseende*/
-    font-family: 'Montserrat', sans-serif;
     font-size: 2vw;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
@@ -137,8 +138,32 @@ body {
 
 
 /*mobil variant*/
-@media only screen and (max-width: 600px) { 
-  body {
-    background-color: lightblue;
-  }
+@media only screen and (max-width: 1000px) { 
+    #square{
+        width: 80%; 
+    }
+    #logga{width: 230px; height: 230px;}
+    #loggaNamn {
+        font-size: 700%;
+    }
+    .inputLog{
+        width: 80%;
+        font-size: 180%;
+    }
+    #logIn {
+        width: 82%;
+        font-size: 180%;
+    }
+    #eller {
+        font-size: 180%;
+    }
+    .line { width: 250px;}
+    #mobiltBank{
+        font-size: 180%;
+    }
+    #registerBox{
+        width: 80%;
+        font-size: 180%;
+    }
+    body {background-color: lightgrey;}
 }

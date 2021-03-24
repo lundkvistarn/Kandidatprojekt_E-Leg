@@ -1,0 +1,110 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/* Saker att förbättra 
+        - flytta scroller till int (OK!)
+        - Text startsida -> förfrågning text
+
+
+*/
+body {
+    background-color:#34F3F6;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.cointainer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+#box {
+    /* SYNDAR */
+    margin: auto;
+    margin-top: 3%;
+    /*storlek*/
+    width: 300px;    
+    /*utseende*/
+    background-color: rgba(255, 255, 255, 1.0);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+#logga {
+    /*storlek*/
+    width: 130px;       /*8vw;*/
+    height:150px;         /*15vh;*/
+    /*utseende*/
+    margin: auto;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo_identi.svg");
+}
+#ver {
+    height: 200px; 
+    overflow-y: scroll;
+    overflow-X: hidden; 
+    
+}
+#ver::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#ver::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#ver::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.6);
+   
+}
+.vertifikation {
+    background-color: #15415C;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    border-radius: 3px;
+    padding-left:15px;
+    /* SYNDAR */
+    margin:auto;
+    margin-top: 2px;
+    margin-left: 8px;
+}
+
+.stroke {
+    height: 50px;       /*8vw;*/
+    border-left: 1px solid white;
+    /* Erik nu syndar jag */
+    margin: 10px;
+}
+
+#button_forfrag {
+    /* Move */
+    margin:auto;
+    margin-top: 10px;
+    /*storlek*/       /*17.5vw;*/
+    height: 50px;
+    width: 310px;
+    /*utseende*/
+    background-color: #15415C;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+#button_forfrag:hover {
+    opacity: 0.8;
+}
+
+  
