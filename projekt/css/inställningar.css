@@ -1,0 +1,118 @@
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+  background-color:#34F3F6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flex-container {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color:#34F3F6;
+}
+
+#box{
+    display: flex;
+    width: 600px;
+    height: 225px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+#smolbox{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: #15415C;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+#smolbox:hover {
+    opacity: 0.8;
+}
+
+.fraga-input {
+    /*storlek*/
+    width: 325px;          /*16vw;*/
+    height: 55px;          /*5vh;*/
+
+    /*position*/
+
+    /*utseende*/
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    border-radius: 3px;
+    box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+#fraga {
+    /*storlek*/
+    width: 330px;       /*17.5vw;*/
+    height: 60px;       /*6vh;*/
+
+    /*position*/
+
+    /*utseende*/
+    background-color: #15415C;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    box-shadow: 10px;
+}
+
+#fråga:hover {
+    background-color: rgba(66, 103, 125);
+}
+
+/* FOOTER */
+#footer {
+    /*storlek*/
+    width: 98%;
+    height: 5vh;
+ 
+    /*position*/
+    position: absolute;
+    bottom: 1vh;
+
+    /*utseende*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.link {
+    cursor: default;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+.link:hover{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*mobil variant*/
+@media only screen and (max-width: 600px) { 
+    body {
+        background-color: lightblue;
+  }
+}
