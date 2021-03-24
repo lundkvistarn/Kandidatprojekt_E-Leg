@@ -8,7 +8,8 @@ const db = mysql.createConnection({
     host: process.env.DATABAS_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+    database: process.env.DATABASE,
+    port: process.env.DATABASE_PORT
 });
 
 
@@ -17,16 +18,16 @@ exports.login = async (req, res) => {
 
         const { email, password } = req.body;
 
-        if (!email || !password) { //om emailen eller passwordet är "olagliga" eller rutorna är tomma - AL
+        if (!email || !password) { //om emailen eller passwordet ï¿½r "olagliga" eller rutorna ï¿½r tomma - AL
             return res.status(400).render('login', {
                 message: 'Please provide an email and password'
             })
         }
 
-        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => { //query för att få emailen - AL
+        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => { //query fï¿½r att fï¿½ emailen - AL
             console.log(results);
 
-            if (!results || !(await bcrypt.compare(password, results[0].password))) { //om mailen inte finns eller lösenordet är fel - AL
+            if (!results || !(await bcrypt.compare(password, results[0].password))) { //om mailen inte finns eller lï¿½senordet ï¿½r fel - AL
                 res.status(401).render('login', {
                     message: 'Email or password is incorrect'
                 })
@@ -41,12 +42,12 @@ exports.login = async (req, res) => {
                 });
                 console.log("The token is: " + token);
 
-                //options för cookien
+                //options fï¿½r cookien
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60* 60* 1000
                     ),
-                    httpOnly: true //kan bara ge cookie om usern är inne på en http sida - AL
+                    httpOnly: true //kan bara ge cookie om usern ï¿½r inne pï¿½ en http sida - AL
                 }
                 //skickar token till client som en cookie
                 res.cookie('jwt', token, cookieOptions);
@@ -65,10 +66,10 @@ exports.register = (req, res) => {
     console.log(req.body);
 
 
-    //skapar variabler för varje ruta i register - AL
+    //skapar variabler fï¿½r varje ruta i register - AL
     const { name, email, password, passwordConfirm } = req.body;
 
-    //mysql query för att få email från databasen, gör även att en email bara kan skrivas in en gång och kollar ifall lösenorden stämmer överns med varandra - AL
+    //mysql query fï¿½r att fï¿½ email frï¿½n databasen, gï¿½r ï¿½ven att en email bara kan skrivas in en gï¿½ng och kollar ifall lï¿½senorden stï¿½mmer ï¿½verns med varandra - AL
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
         if (error) {
             console.log(error);
@@ -84,11 +85,11 @@ exports.register = (req, res) => {
             })
         }
 
-        //encryptar lösenorden med becryptjs och hashing - AL
+        //encryptar lï¿½senorden med becryptjs och hashing - AL
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        //skickar in namn, email och encryptad lösenord till databasen - AL
+        //skickar in namn, email och encryptad lï¿½senord till databasen - AL
         db.query('INSERT INTO users SET ?', { name: name, email: email, password: hashedPassword }, (error, results) => {
             if (error) {
                 console.log(error);
@@ -108,15 +109,15 @@ exports.isLoggedIn = async (req, res, next) => {
     //om det finns en cookie med namnet jwt - AL
     if (req.cookies.jwt) {
         try {
-            //1) verify token
-            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //jämför userns cookie med lösenordet vi använde för att skapa token vi har sparat i env
+            //verify token
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //jï¿½mfï¿½r userns cookie med lï¿½senordet vi anvï¿½nde fï¿½r att skapa token vi har sparat i env
             console.log(decoded);
 
             //check if the user still exists - AL
             db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
                 console.log(result);
 
-                //om det inte finns något resultat - AL
+                //om det inte finns nï¿½got resultat - AL
                 if (!result) {
                     return next();
                 }
@@ -129,16 +130,16 @@ exports.isLoggedIn = async (req, res, next) => {
             console.log(error);
             return next();
         }
-    } else { //om det inte finns en cookie går den vidare  - AL
+    } else { //om det inte finns en cookie gï¿½r den vidare  - AL
         next();
     } 
 }
 
-//när användare klickar på logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
+//nï¿½r anvï¿½ndare klickar pï¿½ logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
 exports.logout = async (req, res) => {
     res.cookie('jwt', 'logout', {
         expires: new Date(Date.now() + 2 * 1000),
-        httpOnly: true //kan bara göras från en http browser, skyddar mot attacker  - AL
+        httpOnly: true //kan bara gï¿½ras frï¿½n en http browser, skyddar mot attacker  - AL
     });
 
     res.status(200).redirect('/');

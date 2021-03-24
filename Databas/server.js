@@ -17,17 +17,18 @@ const db = mysql.createConnection({
     host: process.env.DATABAS_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+    database: process.env.DATABASE,
+    port: process.env.DATABASE_PORT
 });
 
 const publicDirectory = path.join(__dirname, './public'); //define where all public directory is - AL
-app.use(express.static(publicDirectory)); //säger åt server att använda publicdirextory - AL
+app.use(express.static(publicDirectory)); //sï¿½ger ï¿½t server att anvï¿½nda publicdirextory - AL
 
-//parse URL-encoded bodies (as sent by HTML forms), vi kan använda det user skriver i forms i req - AL
+//parse URL-encoded bodies (as sent by HTML forms), vi kan anvï¿½nda det user skriver i forms i req - AL
 app.use(express.urlencoded({ extended: false }));
 //parse JSON bodies (as sent byt API clients) - AL
 app.use(express.json());
-//initialize cookieparser så vi kan använda cookies i browsern - AL
+//initialize cookieparser sï¿½ vi kan anvï¿½nda cookies i browsern - AL
 app.use(cookieParser());
 
 app.set('view engine', 'hbs');
@@ -52,27 +53,13 @@ db.connect(function (err) {
     //    console.log("Table created");
     //});
 
-    //var sql = "INSERT INTO customers (username, password) VALUES ?";
-    //var values = [
-    //    ['Anders', 'Highway71'],
-    //    ['Erik', 'Lowstreet4'],
-    //    ['Carl', 'Applest52'],
-    //    ['Ludde', 'Mountain21'],
-    //    ['Richard', 'Valley345'],
-    //    ['Linnea', 'Oceanblvd2'],
-    //    ['Moa', 'greenGrass1']
-    //];
-    //connection.query(sql, [values], function (err, result) { 
-    //    if (err) throw err;
-    //    console.log("Number of records inserted: " + result.affectedRows);
-    //})
 });
 
 //Define routes
-//Varje gång man använder / går den in i pages.js och kollar om det finns en sådan route - AL
+//Varje gï¿½ng man anvï¿½nder / gï¿½r den in i pages.js och kollar om det finns en sï¿½dan route - AL
 app.use('/', require('./routes/pages'));
 
-//varje gång /auth används går den in i auth  - AL
+//varje gï¿½ng /auth anvï¿½nds gï¿½r den in i auth  - AL
 app.use('/auth', require('./routes/auth'));
 
 app.listen(port, () => {
