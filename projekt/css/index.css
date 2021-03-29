@@ -1,77 +1,79 @@
 
 /* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); 
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap%27');
+
 
 body {
-  background-color:#b6d1fa;
-  font-family: 'Montserrat', sans-serif;
+  background-color:#34F3F6;
+  font-family: 'Josefin Sans', sans-serif;
+}
+#flexContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-#wrapper {
-    float:left;
-    width: 50vw;
-    margin-top: 30vh;
+#square {
+    /*storlek*/
+    width: 427px;       /*23vw;*/
+    /*position*/
+    margin: auto;
+    margin-top: 4vh;
+
+    /*utseende*/
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
 }
 #logga {
-    float:left;
-	width: 10vw;
-    margin-left: 30%;
-	height: 20vh;
-	background-repeat: no-repeat;
-	background-image: url("../img/logo_identi.svg");
+    /*storlek*/
+    width: 150px;       /*8vw;*/
+    height:150px;         /*15vh;*/
+    /*utseende*/
+    margin:auto;
+    margin-top: 2vh;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo_identi.svg");
+    display: flex;
 }
-h2 {
-	font-family: 'Montserrat', sans-serif;
-	margin-top: 1vh;
-    font-size: 4vw;
-  	color: rgba(0, 0, 0, 0.6);
-}
-.square {
-	/*storlek*/
-	height: 60vh;
-	width: 23vw;
-	/*position*/
-    float:right;
-    margin-right: 20vw;
-    margin-top: 10vh;
-	/*utseende*/
-	background-color: rgba(255, 255, 255, 0.8);
-	border: 2px solid rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
-    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
-	/*Font*/ 
-
-}
-#namn {
+#loggaNamn {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3vw;
-    color: rgba(0, 0, 0, 0.6);
-    margin-left: 13vh;
-    margin-top: 4vh;
-    margin-bottom: 0vh;
+    font-size: 55px;        /*3vw;*/
+    color: #34F3F6;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 
 /* LOG IN */
 #wraplog {
-    margin-top: 3vh; 
-    margin-left: 2.5vw;
+   text-align: center;
 }
 .inputLog {
-    width: 16vw;
+    /*storlek*/
+    width: 307px;          /*16vw;*/
     height: 5vh;
+    /*position*/
     padding-left: 1vw;
     margin-top: 2vh;
-    font-family: 'Montserrat', sans-serif;
+    /*utseende*/
+    font-family: 'Josefin Sans', sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.9);
     border-radius: 3px;
     box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2);
 }
 #logIn {
-    width: 17.5vw;
+    /*storlek*/
+    width: 330px;       /*17.5vw;*/
     height: 6vh;
-    background-color: #68BDD8;
-    margin-top: 4vh;
-    font-family: 'Montserrat', sans-serif;
+
+    /*position*/
+    margin-top: 2vh;
+    /*utseende*/
+    background-color: #15415C;
+    font-family: 'Josefin Sans', sans-serif;
     border: none;
     color: white;
     border-radius: 3px;
@@ -81,43 +83,48 @@ h2 {
     opacity: 0.8;
 }
 #eller {
-    margin-left: -0.8vw;
+   margin:auto;
 }
 .line {
-    width: 8vw;
+    width: 155px;       /*8vw;*/
     border-top: 1px solid black;
 }
 
 /* REGISTRERA */
 #registerBox{
-    width: 22vw;
-	/*position*/
-    float:right;
-    margin-right: -23.2vw;
-    margin-top: 73vh;
-	/*utseende*/
-	background-color: rgba(255, 255, 255, 0.8);
-	border: 2px solid rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
+    /*storlek*/
+    width: 410px;       /*22vw;*/
+
+    /*position*/
+    display:flex;
+    margin:auto;
+    margin-top: 10px;
+    text-align:center;
+
+    /*utseende*/
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
-    font-size: 2.5vh;
     padding-left: 1vw;
+
 }
 
 
 /* FOOTER */
 #footer {
+    /*storlek*/
     width: 98%;
     height: 5vh;
-    background-color: rgba(255, 255, 255, 0.8);
+ 
+    /*position*/
+    position: absolute;
+    bottom: 0vh;
 
-    /* FONT */
-    font-family: 'Montserrat', sans-serif;
+    /*utseende*/
     font-size: 2vw;
     text-align: center;
-    /* POSITION */ 
-    position: absolute;
-    bottom: 1vh;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .link {
     cursor: default;
@@ -131,8 +138,32 @@ h2 {
 
 
 /*mobil variant*/
-@media only screen and (max-width: 600px) { 
-  body {
-    background-color: lightblue;
-  }
+@media only screen and (max-width: 1000px) { 
+    #square{
+        width: 80%; 
+    }
+    #logga{width: 230px; height: 230px;}
+    #loggaNamn {
+        font-size: 700%;
+    }
+    .inputLog{
+        width: 80%;
+        font-size: 180%;
+    }
+    #logIn {
+        width: 82%;
+        font-size: 180%;
+    }
+    #eller {
+        font-size: 180%;
+    }
+    .line { width: 250px;}
+    #mobiltBank{
+        font-size: 180%;
+    }
+    #registerBox{
+        width: 80%;
+        font-size: 180%;
+    }
+    body {background-color: lightgrey;}
 }
