@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Identi</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+    <link rel="stylesheet" type="text/css" href="../css/säkerhet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+<div class="upper_container">
+
+    <div class="hamburger">
+            <div id="myLinks">
+                 <a href="#news">Profil</a>
+                 <a href="#contact">Inställningar</a>
+                 <a href="#about">Legitimeringskort</a>
+            </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="breadcrumb"> 
+        <p class="pText">Hem -> Säkerhet</p>
+    </div>
+
+    <div class="logout">
+        <a href="javascript:void(0);" class="icon" onclick="">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- ++++++++ the log out button ++++++++++ <div class="logout"> <button class="button" id="loggaut">Logga ut</button> </div> -->
+
+</div>
+
+
+<div class="button_container">
+
+
+    <div class="textbox_safety">
+
+        <h2> Din säkerhet - <br> Vår prioritet </h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+             ullamco laboris nisi ut aliquip ex ea commodo consequat. <br> <br>
+             Duis aute irure dolor in reprehenderit in 
+        </p>
+    </div>
+         
+</div>
+
+
+<div class="information_container">
+
+    <div class="line">
+        <hr class="style-six"> </hr>
+    </div>
+     
+    <div class="information_line">
+
+    <a href="url">Om oss</a>
+    <a href="url">Säkerhet</a>
+    <a href="url">Kontakt</a>
+
+    </div>
+         
+</div>
+
+    
+
+  </body>
+
+</html>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
