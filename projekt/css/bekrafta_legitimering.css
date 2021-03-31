@@ -1,0 +1,1082 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    background-color: rgb(49, 243, 246);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Containers */
+
+/* ----------- Profile ----------- */
+
+.upper_container{
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+}
+
+.hamburger {
+    display: contents;
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.hamburger #myLinks {
+    display: none;
+
+    margin-left: 40px;
+    margin-top: -10px;
+    background-color: rgb(50, 227, 230);
+    z-index: 100;
+}
+
+/* Style navigation menu links */
+.hamburger a {
+    color: white;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}     
+
+.hamburger a.icon {
+    background: rgb(50, 227, 230);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.hamburger a:hover {
+background-color: rgb(50, 227, 230);
+color: rgb(0, 0, 0);
+}
+
+.logout {
+    display: contents;
+    overflow: hidden;
+    background-color:rgb(128, 17, 17);
+    position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.logout #myLinks {
+    display: none;
+
+    margin-right: 0px;
+    margin-top: -10px;
+    background-color: rgb(0, 0, 0);
+}
+
+/* Style navigation menu links */
+.logout a {
+    color: white;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}     
+
+.logout a.icon {
+    background: rgb(128, 17, 17);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.logout a:hover {
+background-color: rgb(128, 17, 17);
+color: rgb(185, 14, 14);
+}
+
+.breadcrumb {
+    /*position*/
+	position: fixed;
+    margin-top: 150px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.square {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+
+	/*storlek*/
+	width: 500px;
+
+	/*position*/
+	position: fixed;
+	top: 13%;
+	margin-left: 300px;
+	transform: translate(-50%, -50%);
+    
+	/*utseende*/
+	background-color: #ffffff;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 2px; 
+}
+
+.profile_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile_information {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_pic {
+    /*storlek*/
+    height: 100%;
+    background-color: rgba(128, 56, 56, 0.5);
+}
+
+.infobox {
+
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center; 
+
+    /*utseende*/
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);    
+  }
+
+.settings_card {
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+}
+
+/* ------------- Menu -------------- */
+
+.whitebox_allpending_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: scroll;
+
+    /*position*/
+    position: fixed;
+    width: 900px;
+    height: 900px;
+    z-index: 15;
+    top: 18%;
+    left: 50%;
+    margin: 0 0 0 -450px;
+
+    /*utseende*/
+	background-color: #ffffff;
+	border: 0px solid rgb(0, 0, 0);
+	border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+
+.pending_box {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*position*/
+    width: 400px;
+    height: 400px;
+    z-index: 16;
+    margin: 23px;
+
+    /*utseende*/
+	background-color: #0D0F25;
+	border: 0px solid rgb(0, 0, 0);
+	border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.time_pending_box {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    z-index: 16;
+
+    /*utseende*/
+	background-color: #0D0F25;
+	border: 0px solid rgb(0, 0, 0);
+	border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.text_pending_box {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    width: 350px;
+    height: 100px;
+    z-index: 16;
+    margin-top: 80px;
+
+    /*utseende*/
+	background-color: #0D0F25;
+	border-radius: 10px;
+}
+
+.blobs {
+    /*position*/
+    width: 350px;
+    height: 100px;
+    z-index: 16;
+
+    /*utseende*/
+	background-color: #0D0F25;
+}
+
+/* ------------- Information - Kontakt, säkerhet... -------------- */
+
+.information_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /*position*/
+    position: fixed;
+    width: 630px;
+    z-index: 15;
+    top: 100%;
+    left: 50%;
+    margin: -100px 0 0 -315px;
+}
+
+.line {
+
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+
+    width: 630px;
+    margin-top: -30px;
+}
+
+.information_line{
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+
+    width: 630px;
+}
+
+/* Apperance */
+
+/* ------------- Buttons -------------- */
+
+.button {
+    /*storlek*/
+    height: 80px;
+    width: 560px;
+
+    /*position*/
+    margin-top: 0px;
+    margin-bottom: 30px;
+
+    /*utseende*/
+    border: rgb(255, 255, 255);
+    background-color: #0D0F25;
+    color: #ffffff;
+    text-decoration: none;
+    text-size-adjust: 20px;
+    cursor: pointer;
+
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* FONT */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*overwrite*/ /*these buttons are in square*/ 
+#settings {
+
+    height: 30px;
+    width: 500px;
+    margin-bottom: 0px;
+    margin: 0.5px;
+    border-radius: 1px;
+
+    background-color: #0D0F25;
+    color: white;
+}
+
+#pending_box_button {
+
+    /*position*/
+    margin-top: 50px;
+
+    /*storlek*/
+    height: 80px;
+    width: 350px;
+
+    /*utseende*/
+    background-color: #36b924;
+    border-radius: 10px;
+
+}
+
+#pending_box_button:hover {
+    background-color: #258019;
+}
+
+.button:hover {
+    background-color:hsl(181, 65%, 26%);
+}
+
+
+
+/* ------------- Font and text -------------- */
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+p3 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+p4 {
+    color: rgb(255, 230, 0);
+    font-size: 20px;
+}
+
+.pText {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
+#breadcrumbs {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 1000px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+
+
+/* ------------- Links -------------- */
+
+/* unvisited link */
+a:link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(0, 0, 0);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(88, 88, 88);
+  }
+  
+  /* selected link */
+  a:active {
+    color: rgb(27, 27, 27);
+  }
+
+
+/* ------------- Images -------------- */
+  
+#logga {
+    width: 10px;
+    background-image: url("../img/logo_identi.svg");
+}
+
+.icon {
+    /*storlek*/
+    height: 40px;
+
+    /*position*/
+    padding-top: 24px;
+}
+  
+#logo_above_buttons {
+
+    height: 100px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+  
+/*++++++++++++++++++++++++++++++++++++++++++mobil++++++++++++++++++++++++++++++*/
+
+@media only screen and (max-height: 1243px){ 
+    body {
+        background-color: rgb(49, 243, 246);
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* Containers */
+    
+    /* ----------- Profile ----------- */
+    
+    .square{
+        /*flexbox*/
+        display: none;
+    }
+
+    .breadcrumb {
+        /*position*/
+        margin-top: 20px;
+    }
+
+    .hamburger {
+        display: contents;
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .hamburger #myLinks {
+        display: none;
+
+        margin-left: 40px;
+        margin-top: -10px;
+        background-color: rgb(50, 227, 230);
+        z-index: 100;
+    }
+
+    /* Style navigation menu links */
+    .hamburger a {
+        color: white;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }     
+
+    .hamburger a.icon {
+        background: rgb(50, 227, 230);
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .hamburger a:hover {
+    background-color: rgb(50, 227, 230);
+    color: rgb(0, 0, 0);
+    }
+
+    .logout {
+        display: contents;
+        overflow: hidden;
+        background-color:rgb(128, 17, 17);
+        position: relative;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .logout #myLinks {
+        display: none;
+
+        margin-right: 0px;
+        margin-top: -10px;
+        background-color: rgb(0, 0, 0);
+    }
+
+    /* Style navigation menu links */
+    .logout a {
+        color: white;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }     
+
+    .logout a.icon {
+        background: rgb(128, 17, 17);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .logout a:hover {
+    background-color: rgb(128, 17, 17);
+    color: rgb(185, 14, 14);
+    }
+    
+    
+    /* ------------- Menu -------------- */
+    
+    .whitebox_allpending_container {
+        /*position*/
+        position: fixed;
+        width: 340px;
+        height: 500px;
+        z-index: 0;
+        top: 27%;
+        left: 50%;
+        margin: -50px 0 0 -170px;
+    }
+
+    .pending_box {
+        /*flexbox*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /*position*/
+        width: 310px;
+        height: 310px;
+        z-index: 16;
+        margin: 15px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+        border: 0px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+
+    
+    .text_pending_box {
+
+        /*flexbox*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    
+        /*position*/
+        width: 260px;
+        height: 100px;
+        z-index: 16;
+        margin-top: 50px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+        border-radius: 10px;
+    }
+
+    .blobs {
+        /*position*/
+        width: 240px;
+        height: 100px;
+        z-index: 16;
+
+        margin-top: 35px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+    }
+
+    
+    
+    /* ------------- Information - Kontakt, säkerhet... -------------- */
+    
+    .information_line{
+        /*position*/
+        width: 100px;
+        z-index: 15;
+        top: 100%;
+        left: 50%;
+        margin: -85px 0 0 -170px;
+        width: 340px;
+    }
+    
+    /* Apperance */
+    
+    /* ------------- Buttons -------------- */
+    
+    .button {
+        /*storlek*/
+        height: 80px;
+        width: 315px;
+    
+        /*position*/
+        margin-top: 0px;
+        margin-bottom: 30px;
+    
+        /*utseende*/
+        border: rgb(255, 255, 255);
+        background-color: #0D0F25;
+        color: #ffffff;
+        text-decoration: none;
+        text-size-adjust: 20px;
+        cursor: pointer;
+    
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        /* FONT */
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #pending_box_button {
+
+        /*position*/
+        margin-top: 0px;
+    
+        /*storlek*/
+        height: 50px;
+        width: 240px;
+    
+        /*utseende*/
+        background-color: #36b924;
+        border-radius: 10px;
+    
+    }
+    
+    #pending_box_button:hover {
+        background-color: #258019;
+    }
+    
+    /*overwrite*/ /*these buttons are in square*/ 
+    #settings {
+    
+        height: 30px;
+        width: 500px;
+        margin-bottom: 0px;
+        border-radius: 1px;
+    
+        background-color: #777d78;
+        color: white;
+    }
+    
+    .button:hover {
+        background-color:hsl(181, 65%, 26%);
+    }
+    
+    /* ------------- Font  -------------- */
+    
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .pText {
+        font-size: 90%;
+        color: #050505;
+        text-decoration: none;
+    }
+    
+    
+    /* ------------- Links -------------- */
+    
+    /* unvisited link */
+    a:link {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+      }
+      
+      /* visited link */
+      a:visited {
+        color: rgb(0, 0, 0);
+      }
+      
+      /* mouse over link */
+      a:hover {
+        color: rgb(88, 88, 88);
+      }
+      
+      /* selected link */
+      a:active {
+        color: rgb(27, 27, 27);
+      }
+    
+    
+    /* ------------- Images -------------- */
+      
+    #logga {
+        width: 10px;
+        background-image: url("../img/logo_identi.svg");
+    }
+    
+    .icon {
+        /*storlek*/
+        height: 20px;
+    
+        /*position*/
+        padding-top: 12px;
+    }
+      
+    #logo_above_buttons {
+    
+        height: 50px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 1180px){ 
+
+    body {
+        background-color: rgb(49, 243, 246);
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* Containers */
+    
+    /* ----------- Profile ----------- */
+    
+    .square{
+        /*flexbox*/
+        display: none;
+    }
+
+    .breadcrumb {
+        /*position*/
+        margin-top: 20px;
+    }
+
+    .hamburger {
+        display: contents;
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .hamburger #myLinks {
+        display: none;
+
+        margin-left: 40px;
+        margin-top: -10px;
+        background-color: rgb(50, 227, 230);
+        z-index: 100;
+    }
+
+    /* Style navigation menu links */
+    .hamburger a {
+        color: white;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }     
+
+    .hamburger a.icon {
+        background: rgb(50, 227, 230);
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .hamburger a:hover {
+    background-color: rgb(50, 227, 230);
+    color: rgb(0, 0, 0);
+    }
+
+    .logout {
+        display: contents;
+        overflow: hidden;
+        background-color:rgb(128, 17, 17);
+        position: relative;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .logout #myLinks {
+        display: none;
+
+        margin-right: 0px;
+        margin-top: -10px;
+        background-color: rgb(0, 0, 0);
+    }
+
+    /* Style navigation menu links */
+    .logout a {
+        color: white;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }     
+
+    .logout a.icon {
+        background: rgb(128, 17, 17);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .logout a:hover {
+    background-color: rgb(128, 17, 17);
+    color: rgb(185, 14, 14);
+    }
+    
+    
+    /* ------------- Menu -------------- */
+    
+    .whitebox_allpending_container {
+        /*position*/
+        position: fixed;
+        width: 340px;
+        height: 500px;
+        z-index: 0;
+        top: 27%;
+        left: 50%;
+        margin: -50px 0 0 -170px;
+    }
+
+    .pending_box {
+        /*flexbox*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /*position*/
+        width: 310px;
+        height: 310px;
+        z-index: 16;
+        margin: 15px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+        border: 0px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+
+    
+    .text_pending_box {
+
+        /*flexbox*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    
+        /*position*/
+        width: 260px;
+        height: 100px;
+        z-index: 16;
+        margin-top: 30px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+        border-radius: 10px;
+    }
+
+    .blobs {
+        /*position*/
+        width: 240px;
+        height: 100px;
+        z-index: 16;
+
+        margin-top: 35px;
+    
+        /*utseende*/
+        background-color: #0D0F25;
+    }
+    
+    /* ------------- Information - Kontakt, säkerhet... -------------- */
+    
+    .information_line{
+        /*position*/
+        width: 100px;
+        z-index: 15;
+        top: 100%;
+        left: 50%;
+        margin: -85px 0 0 -170px;
+        width: 340px;
+    }
+    
+    /* Apperance */
+    
+    /* ------------- Buttons -------------- */
+    
+    .button {
+        /*storlek*/
+        height: 80px;
+        width: 315px;
+    
+        /*position*/
+        margin-top: 0px;
+        margin-bottom: 30px;
+    
+        /*utseende*/
+        border: rgb(255, 255, 255);
+        background-color: #0D0F25;
+        color: #ffffff;
+        text-decoration: none;
+        text-size-adjust: 20px;
+        cursor: pointer;
+    
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        /* FONT */
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /*overwrite*/ /*these buttons are in square*/ 
+    #settings {
+    
+        height: 30px;
+        width: 500px;
+        margin-bottom: 0px;
+        border-radius: 1px;
+    
+        background-color: #777d78;
+        color: white;
+    }
+
+    #pending_box_button {
+
+        /*position*/
+        margin-top: 0px;
+    
+        /*storlek*/
+        height: 50px;
+        width: 240px;
+    
+        /*utseende*/
+        background-color: #36b924;
+        border-radius: 10px;
+    
+    }
+
+
+    #pending_box_button:hover {
+        background-color: #258019;
+    }
+    
+    .button:hover {
+        background-color:hsl(181, 65%, 26%);
+    }
+    
+    /* ------------- Font  -------------- */
+    
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .pText {
+        font-size: 90%;
+        color: #050505;
+        text-decoration: none;
+    }
+    
+    
+    /* ------------- Links -------------- */
+    
+    /* unvisited link */
+    a:link {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+      }
+      
+      /* visited link */
+      a:visited {
+        color: rgb(0, 0, 0);
+      }
+      
+      /* mouse over link */
+      a:hover {
+        color: rgb(88, 88, 88);
+      }
+      
+      /* selected link */
+      a:active {
+        color: rgb(27, 27, 27);
+      }
+    
+    
+    /* ------------- Images -------------- */
+      
+    #logga {
+        width: 10px;
+        background-image: url("../img/logo_identi.svg");
+    }
+    
+    .icon {
+        /*storlek*/
+        height: 20px;
+    
+        /*position*/
+        padding-top: 12px;
+    }
+      
+    #logo_above_buttons {
+    
+        height: 50px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+  }
+  
+
+  @media only screen and (max-height: 703px){ 
+
+    .information_line{
+        display: none;
+    }
+
+    .line{
+        display: none;
+    }
+  }

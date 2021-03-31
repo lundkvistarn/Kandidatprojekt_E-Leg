@@ -1,0 +1,63 @@
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+  background-color:#34F3F6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flex-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container > div {
+    margin: 10px;
+}
+
+
+#fråga:hover {
+    background-color: rgba(66, 103, 125s);
+}
+
+#checkmark {
+    margin: 14px;
+}
+
+/* FOOTER */
+#footer {
+    /*storlek*/
+    width: 98%;
+    height: 5vh;
+ 
+    /*position*/
+    position: absolute;
+    bottom: 1vh;
+
+    /*utseende*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.link {
+    cursor: default;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+.link:hover{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*mobil variant*/
+@media only screen and (max-width: 600px) { 
+  body {
+    background-color: lightblue;
+  }
+}
