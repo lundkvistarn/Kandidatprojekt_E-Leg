@@ -15,7 +15,29 @@ exports.profile = (req, res) => {
     let token = req.cookie.jwt
     
 
-    //om det inte finns en token stored som cookie är usern unauthorized
+    //om det inte finns en token stored som cookie ï¿½r usern unauthorized
+    if (!token) {
+        return res.status(403).send()
+    }
+
+    let payload
+
+    try {
+
+        payload = jwt.verify(token, process.env.JWT_SECRET)
+        next()
+
+    } catch (e) {
+        return re.status(401).send()
+    }
+}
+
+exports.legitimera = (req, res) => {
+
+    let token = req.cookie.jwt
+    
+
+    //om det inte finns en token stored som cookie ï¿½r usern unauthorized
     if (!token) {
         return res.status(403).send()
     }
