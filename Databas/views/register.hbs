@@ -9,47 +9,36 @@
 </head>
 <body>
 
-    <nav>
-        <h4> Node MySQL</h4>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        </ul>
+    <div class="entire_screen">
 
-    </nav>
+        <div class="white_container">
 
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">
-                Register Form
-            </div>
-            <div class="card-body">
+            <img src="../logo_identi.svg" alt ="this is our logo" id="logo_above_form"/>
+
                 <form action="/auth/register" method="POST">
                     <!--skickar vardena till auth register - AL -->
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" />
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Namn" />
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" />
+                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" />
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Lösenord"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="passwordConfirm">Confirm Password</label>
-                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" />
+                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Bekräfta lösenord"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Register User</button>
+                    <button type="submit" class="primary_button">Registrera mig</button>
                 </form>
-            </div>
+
+                <div class="line">
+                    <a a href="/login" class="links"> Har du redan ett konto? </a>
+                </div>
         </div>
 
         <!--en if sats med hbs som gor alerten ifall en variabel message skickas till register - AL -->
