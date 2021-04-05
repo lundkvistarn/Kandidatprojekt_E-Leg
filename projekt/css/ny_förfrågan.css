@@ -52,8 +52,9 @@ body {
     box-shadow: 10px;
 }
 
-#fråga:hover {
+#fraga:hover {
     background-color: rgba(66, 103, 125);
+    cursor: pointer;
 }
 
 /* FOOTER */

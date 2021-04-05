@@ -7,6 +7,32 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.upper_container{
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+}
+
+.breadcrumb {
+    /*position*/
+	position: fixed;
+	left: 50%;
+    margin-top: 20px;
+	transform: translate(-50%, -50%);
+}
+
+.pText {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
+#breadcrumbs {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
 .flex-container {
     width: 100%;
     height: 600px;
@@ -26,7 +52,7 @@ body {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    border-radius: 10px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
     margin: 20px;
 }
@@ -39,50 +65,18 @@ body {
     align-items: center;
     background-color: #15415C;
     border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
     color: white;
 }
 
 #smolbox:hover {
     opacity: 0.8;
-}
-
-.fraga-input {
-    /*storlek*/
-    width: 325px;          /*16vw;*/
-    height: 55px;          /*5vh;*/
-
-    /*position*/
-
-    /*utseende*/
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid rgba(0, 0, 0, 0.9);
-    border-radius: 3px;
-    box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 
-#fraga {
-    /*storlek*/
-    width: 330px;       /*17.5vw;*/
-    height: 60px;       /*6vh;*/
 
-    /*position*/
-
-    /*utseende*/
-    background-color: #15415C;
-    font-family: 'Montserrat', sans-serif;
-    border: none;
-    color: white;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.9);
-    box-shadow: 10px;
-}
-
-#fråga:hover {
-    background-color: rgba(66, 103, 125);
-}
 
 /* FOOTER */
 #footer {

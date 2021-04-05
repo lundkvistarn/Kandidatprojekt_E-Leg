@@ -1,0 +1,157 @@
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+  background-color:#34F3F6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.upper_container{
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+}
+
+.breadcrumb {
+    /*position*/
+	position: fixed;
+	left: 50%;
+    margin-top: 20px;
+	transform: translate(-50%, -50%);
+}
+
+.pText {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
+#breadcrumbs {
+    font-size: 90%;
+    color: #050505;
+    text-decoration: none;
+}
+
+.flex-container {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color:#34F3F6;
+}
+
+#box{
+    width: 500px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 3px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#formbox{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.line{
+    display: flex;
+    border-top: 1px solid black;
+    width: 400px;
+}
+
+#subbox{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 500px;
+    height: 60px;
+    margin: 10px;
+}
+
+.fraga-input {
+    /*storlek*/
+    width: 400px;          /*16vw;*/
+    height: 50px;          /*5vh;*/
+
+    /*position*/
+
+    /*utseende*/
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    border-radius: 3px;
+    box-shadow: inset 3px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 40px;
+}
+
+
+.knapp {
+    /*storlek*/
+    width: 245px;       /*17.5vw;*/
+    height: 60px;       /*6vh;*/
+
+    /*position*/
+
+    /*utseende*/
+    background-color: #15415C;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    box-shadow: 10px;
+    
+}
+
+.knapp:hover {
+    background-color: rgba(66, 103, 125);
+    cursor: pointer;
+}
+
+#avbryt {
+    background-color: #851f27;
+}
+
+#avbryt:hover {
+    background-color:  #b1434c;
+}
+
+/* FOOTER */
+#footer {
+    /*storlek*/
+    width: 98%;
+    height: 5vh;
+ 
+    /*position*/
+    position: absolute;
+    bottom: 1vh;
+
+    /*utseende*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.link {
+    cursor: default;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+.link:hover{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*mobil variant*/
+@media only screen and (max-width: 600px) { 
+    body {
+        background-color: lightblue;
+  }
+}
