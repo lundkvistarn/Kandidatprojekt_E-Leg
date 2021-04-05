@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <!--
+        LEGITIMERA
+        (user1: Wants to ask user to legitimize, user2: legitimize to user1)
+        - 1: confirm that epost is registrered on the database
+        - 2: Send a request to a user2 w. a pop-up on user 2's profile
+        - 3: user2 feedback that the legitimization was confirmed
+        - 4: user1 screen will show a confirmation of user2 (confimation: Send "namn" and a message complete or not)
+
+        Useful links: 
+        - 1(confrim database): https://stackoverflow.com/questions/25564123/express-handlebars-show-flash-messages "User not found"
+        - 2(request): 
+        - 3(feedback user2):
+        - 4(feedback user1):  
+        - Anders kod: https://stonesoupprogramming.com/2017/06/27/use-handlebars-and-express-in-node-js/ 
+    -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +41,7 @@
         <h4> Skicka verifieringsförfrågan </h4>
         <p> Fyll i email nedanför</p>
         <div>
-            <form action="/action_page.php" method="POST">
+            <form action="/auth/legitimera" method="POST">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" />
@@ -36,7 +51,6 @@
         </div>
 
     </div>
-
 
 </body>
 
