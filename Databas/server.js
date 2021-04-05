@@ -33,9 +33,6 @@ app.use(cookieParser());
 
 app.set('view engine', 'hbs');
 
-
-
-
 db.connect(function (err) {
     if (err) {
         return console.error('error: ' + err.message);
