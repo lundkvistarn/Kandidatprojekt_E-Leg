@@ -4,46 +4,95 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css">
-    <title>Page Title</title>
+    <link rel="stylesheet" href="/style_profile.css">
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Identi</title>
 </head>
 <body>
 
+    <div class="top_bar">
+        <img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/>
+        <h4 id="textLogo_top_bar">Identi </h4>
+    </div>
+
+    <nav>
+        <div class="logowithtext_nav">
+            <img src="../logo_identi.svg" alt ="this is our logo" id="logo_nav"/>
+            <h4 id="textLogo"> Identi </h4>
+        </div> 
+
+        <ul>
+            {{#if user}}
+                <li><a id="hrefnav" href="#leg">Legitimeringskort</a></li>
+                <li><a id="hrefnav" href="#contact">Inställningar</a></li>
+                <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
+                <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
+            {{else}}
+                <li><a id="hrefnav" href="/login">Login</a></li>
+                <li><a id="hrefnav" href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+
+    </nav>
+
+    <div class="navbar">
+
+        <div class="hamburger">
+            <div id="myLinks">
+                <a href="/profile">Konto - {{user.name}}</a>
+                 <a href="#contact">Inställningar</a>
+                 <a href="#about">Legitimeringskort</a>
+                 <a href="/auth/logout">Logga ut</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+    </div>
+
     <div class="entire_screen">
 
-        <div class="row">
+        <div class="welcome_container">
+            <h5 class="card-title"> Välkommen {{user.name}}</h5>
+        </div>
 
-            <div class="col-4">
+        <div class="button_container">
+            <button class="button">Förfråga legitimering</button>
+            <button class="button">Bekräfta legitimering</button>
+            <button class="button">E-mail</button>
+        </div>
 
-                <div class="card">
-
-                    <div class="avatar-ctn"></div>
-                    <img src="/fifflaren.jpg" class="avatar" alt="User profile pic"/>
-                    <div class="card-body">
-                        <h5 class="card-title">{{user.name}}</h5>
-                        <p class="card-text">19981228-XXXX</p>
-                        <a href="#" class="btn btn-primary">{{user.email}}</a>
-                    </div>
-                </div>
+        <div class="information_container">
+            <div class="line">
+                <hr class="style-six"> </hr>
             </div>
-            <div class="col-8">
-                <div class=" card text-center">
-                    <div class="card-header">
-                        Profile page
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"> Hej {{user.name}} welcome back</h5>
-                        <p class="card-text">
-                            This is your profile page where you can add all the information about yourself
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                    <div class="card-body footer text-muted">
-                        Node MySQL - Project
-                    </div>
-                </div>
+
+            <div class="information_line">
+                <a href="url">Om oss</a>
+                <a href="url">Säkerhet</a>
+                <a href="url">Kontakt</a>
+                <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
             </div>
         </div>
+
     </div>
+
 </body>
 </html>
+
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>

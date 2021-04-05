@@ -1,0 +1,412 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    background-color:  rgb(7, 51, 83);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ----------  Navbar, Topbar, Header -------------- */
+
+nav {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 2, 27);
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top_bar {
+    background-color:rgb(107, 206, 207);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 10px;
+}
+
+.logowithtext_nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#hrefnav {
+    color: rgb(0, 2, 27);
+    size: 10px;
+}
+
+#logo_nav {
+    height: 70px;
+}
+
+nav ul{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+}
+
+nav li a:hover {
+    color: rgb(28, 213, 226);
+    text-decoration: none;
+}
+
+
+/* ----------  Navbar, Topbar, Header (Mobil) -------------- */
+
+.navbar {
+    display: none;
+}
+
+#loggaut_information_line {
+    display: none;
+}
+
+#logo_top_bar {
+    display: none;
+}
+
+#textLogo_top_bar {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* ----------  Meny, välkommen -------------- */
+
+.entire_screen {
+    width: 100%;
+    height: 100%;
+
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    position: fixed;
+    width: 630px;
+    z-index: 15;
+    top: 36%;
+    left: 50%;
+    margin: -100px 0 0 -315px;
+
+    /*utseende*/
+	background-color: #ffffff;
+	border: 0px solid rgb(0, 0, 0);
+	border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+
+.welcome_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    position: fixed;
+    width: 630px;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    margin: -100px 0 0 -315px;
+
+    color: #ddd;
+}
+
+/* ----------  Länkar, text, linjer, knappar mm. -------------- */
+
+.links {
+    font-size: 10px;
+    text-decoration: none;
+    margin-top: 14px;
+}
+
+.line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* unvisited link */
+a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(170, 170, 170);
+  }
+  
+  /* selected link */
+  a:active {
+    color: rgb(27, 27, 27);
+  }
+
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(111, 111, 111, 0.3);
+    width: 310px;
+}
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 1000px;
+}
+
+#logga {
+    width: 10px;
+    background-image: url("../img/logo_identi.svg");
+}
+
+
+
+/* ------------- Information - Kontakt, säkerhet... -------------- */
+
+.information_container {
+    /*flexbox*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /*position*/
+    position: fixed;
+    width: 630px;
+    z-index: 15;
+    top: 100%;
+    left: 50%;
+    margin: -100px 0 0 -315px;
+}
+
+.line{
+
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+
+    width: 630px;
+    margin-top: -30px;
+}
+
+.information_line{
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+
+    width: 630px;
+}
+
+/* ------------- Buttons -------------- */
+
+.button {
+    /*storlek*/
+    height: 80px;
+    width: 560px;
+
+    /*position*/
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    /*utseende*/
+    border: rgb(255, 255, 255);
+    background-color: #0D0F25;
+    color: #ffffff;
+    text-decoration: none;
+    text-size-adjust: 20px;
+    cursor: pointer;
+
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* FONT */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button:hover {
+    background-color:hsl(181, 65%, 26%);
+}
+
+
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+/* ------------- Mobil -------------- */
+
+
+@media only screen and (max-width: 1000px) { 
+
+    /* ------------- Dölj -------------- */
+
+    nav {
+        display: none;
+    }
+
+    #hrefnav_remove {
+        display: none;
+    }
+
+    .logowithtext_nav {
+        display: none;
+    }
+
+    #textLogo {
+        display: none;
+    }
+
+    /* ----------  Navbar, Topbar, Header -------------- */
+
+    .navbar {
+        display: block;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 2, 27);
+        z-index: 100;
+    }
+
+    .top_bar {
+        background-color:rgb(12, 136, 145);
+        display: flex;
+        color: rgb(221, 221, 221);
+    
+        height: 70px;
+    }
+    
+    #logo_top_bar {
+        display: block;
+        height: 60px;
+    }     
+
+    #textLogo_top_bar {
+        display: block;
+    }
+
+    .hamburger {
+        display: contents;
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+    }
+
+    .hamburger #myLinks {
+        display: none;
+        background-color: rgb(255, 255, 255);
+        z-index: 100;
+    }
+
+    .hamburger a {
+        color: rgb(0, 0, 0);
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        display: block;
+    }     
+
+    .hamburger a.icon {
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        display: block;
+    }
+
+    .hamburger a:hover {
+    background-color: rgb(112, 144, 170);
+    color: rgb(0, 0, 0);
+    }
+
+    /* ----------  Meny, välkommen -------------- */
+
+    .button_container {
+        /*position*/
+        position: fixed;
+        width: 340px;
+        z-index: 0;
+        left: 50%;
+        margin: -50px 0 0 -170px;
+    }
+
+    .welcome_container {
+        /*position*/
+        position: fixed;
+        width: 340px;
+        z-index: 0;
+        left: 50%;
+        margin: -50px 0 0 -170px;
+    }
+
+    .button {
+        width: 308px;
+    }
+
+    #loggaut_information_line {
+        display: block;
+    }
+
+    /* ------------- Information - Kontakt, säkerhet... -------------- */
+
+    .information_line{
+        /*position*/
+        width: 100px;
+        z-index: 15;
+        top: 100%;
+        left: 50%;
+        margin: -85px 0 0 -170px;
+        width: 340px;
+    }
+
+    
+}
+
+@media only screen and (max-height: 703px){ 
+
+    .information_line{
+        display: none;
+    }
+
+    .line{
+        display: none;
+    }
+  
+}
