@@ -121,6 +121,9 @@ nav li a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
 }
 
+#bc_changepassword {
+}
+
 .welcome_container {
     /*flexbox*/
     display: flex;
@@ -150,6 +153,11 @@ nav li a:hover {
 .line {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.form-group {
+    width: 300px;
+    margin: 25px;
 }
 
 /* unvisited link */
