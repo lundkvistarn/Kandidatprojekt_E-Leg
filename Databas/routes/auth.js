@@ -1,9 +1,6 @@
 const express = require('express');
 const authController = require('../controllers/auth');
 
-const verify = require('../middleware');
-//router.use('/profile', verify, router);
-
 const router = express.Router();
 
 //n�r register formen submittas datan - AL
