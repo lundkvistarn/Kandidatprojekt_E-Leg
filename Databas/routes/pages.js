@@ -25,8 +25,16 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/legitimera', (req, res) => {
-        res.render('legitimera');
+router.get('/legitimera', authController.isLoggedIn, (req, res) => {
+        
+    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+    if (req.user) {
+        res.render('legitimera', {
+            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+        });
+    } else {
+        res.redirect('/login');
+    }
 });
 
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
