@@ -85,7 +85,7 @@ exports.register = (req, res) => {
             })
         }
 
-        //encryptar l�senorden med becryptjs och hashing - AL
+        //encryptar l�senorden med bcryptjs och hashing - AL
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
@@ -143,4 +143,61 @@ exports.logout = async (req, res) => {
     });
 
     res.status(200).redirect('/');
+}
+
+exports.changePassword = async (req, res) => {
+
+    try {
+
+        const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
+        console.log(decoded);
+        console.log(req.body);
+        
+        //skapar variabler f�r varje ruta i register - AL
+        const { password, newpassword, passwordConfirm } = req.body;
+
+        if (!password || !newpassword || !passwordConfirm) { //om emailen eller passwordet �r "olagliga" eller rutorna �r tomma - AL
+            return res.status(400).render('profile', {
+                message: 'Please enter all fields'
+            })
+        }
+    
+        //mysql query f�r att f� email fr�n databasen, g�r �ven att en email bara kan skrivas in en g�ng och kollar ifall l�senorden st�mmer �verns med varandra - AL
+        db.query('SELECT password FROM users WHERE id = ?', [decoded.id], async (error, results) => {
+            if (error) {
+                console.log(error);
+            }
+    
+            if (!(await bcrypt.compare(password, results[0].password))) {
+                return res.render('profile', {
+                    message: 'The current password is incorrect'
+                })
+            } else if (newpassword !== passwordConfirm) {
+                return res.render('profile', {
+                    message: 'The passwords do not match'
+                })
+            }
+    
+            //encryptar l�senorden med becryptjs och hashing - AL
+            let hashedPassword = await bcrypt.hash(newpassword, 8);
+            console.log(hashedPassword);
+    
+            var insertQuery = "UPDATE `users` SET `password` = '" + hashedPassword + "' WHERE ID = " + decoded.id + ";"
+            //skickar in namn, email och encryptad l�senord till databasen - AL
+            db.query(insertQuery,  (error, results) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(results);
+                    return res.render('profile', {
+                        message: 'Password changed'
+                    });
+                }
+            })
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+
 }
