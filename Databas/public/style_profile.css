@@ -168,6 +168,12 @@ nav li a:hover {
     margin: 25px;
 }
 
+#ss_changepassword {
+    width: 310px;
+    margin-left: 20px;
+    border-bottom: 0px;
+}
+
 /* unvisited link */
 a:link {
     color: rgb(255, 255, 255);
