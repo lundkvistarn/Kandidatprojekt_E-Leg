@@ -145,7 +145,7 @@ exports.logout = async (req, res) => {
     res.status(200).redirect('/');
 }
 
-exports.legetimera = async (req, res) => {
+exports.legitimera = async (req, res) => {
 
     const { email } = req.body; //hämtar email från formuläret
 
