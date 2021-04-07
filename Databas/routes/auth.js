@@ -9,7 +9,7 @@ const router = express.Router();
 //n�r register formen submittas datan - AL
 router.post('/register', authController.register) //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
 
-router.post('/legetimera', authController.legetimera) 
+router.post('/legitimera', authController.legitimera) 
 
 router.post('/login', authController.login); //n�r n�gon klickar p� login k�rs funktionen login i auth.js - AL
 

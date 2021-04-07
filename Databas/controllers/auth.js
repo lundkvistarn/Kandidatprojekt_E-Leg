@@ -147,46 +147,26 @@ exports.logout = async (req, res) => {
 
 exports.legitimera = async (req, res) => {
 
-    const { email } = req.body;
+    const { email } = req.body; //hämtar email från formuläret
 
         if (!email) { //om emailen �r "olagliga" eller rutorna �r tomma - AL
-            return res.status(400).render('login', {
-                message: 'Please provide a valid email'
-            })
+            return res.status(400).render('legitimera', {message: 'Please provide a valid email'})
         }
 
-        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => { //query f�r att f� emailen - AL
+        db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => { //query f�r att f� emailen - AL
             console.log(results);
 
-            if (!results || !(await bcrypt.compare(password, results[0].password))) { //om mailen inte finns eller l�senordet �r fel - AL
-                res.status(401).render('login', {
-                    message: 'Email or password is incorrect'
-                })
+            if (!results) { //om mailen inte finns eller l�senordet �r fel - AL
+                console.log("Mejlen fanns inte");
+                return res.render('legitimera', { message: 'No corresponding email found' })
                 
             }
             else {
-                const id = results[0].id;
-
-                //create token for personal id - AL
-                const token = jwt.sign({ id: id }, process.env.JWT_SECRET, { 
-                   expiresIn: process.env.JWT_EXPIRES_IN
-                });
-                console.log("The token is: " + token);
-
-                //options f�r cookien
-                const cookieOptions = {
-                    expires: new Date(
-                        Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60* 60* 1000
-                    ),
-                    httpOnly: true //kan bara ge cookie om usern �r inne p� en http sida - AL
-                }
-                //skickar token till client som en cookie
-                res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/profile");
+                console.log("Skickat");
+                return res.render('legitimera', {message: 'Request sent'})
             }
             
-
         })
 
-    res.status(200).redirect('/legitimera');
+    //res.status(200).redirect('/legitimera');
 }
