@@ -9,9 +9,10 @@ body {
 nav {
     background-color: rgb(142, 202, 203);
     color: #fff;
-    padding: 20px 60px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
+    height: 90px;
 }
 
 nav ul{

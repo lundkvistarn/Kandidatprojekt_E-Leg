@@ -11,9 +11,10 @@ body {
 nav {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 2, 27);
-    padding: 20px 60px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
+    height: 90px;
 }
 
 .top_bar {
@@ -122,7 +123,14 @@ nav li a:hover {
 }
 
 #bc_changepassword {
+    /*position*/
+    position: fixed;
+    width: 340px;
+    z-index: 0;
+    left: 50%;
+    margin: -50px 0 0 -170px;
 }
+
 
 .welcome_container {
     /*flexbox*/
@@ -273,6 +281,10 @@ hr.style-six {
 
 .button:hover {
     background-color:hsl(181, 65%, 26%);
+}
+
+#b_changepassword {
+    width: 308px;
 }
 
 

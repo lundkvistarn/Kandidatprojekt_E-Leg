@@ -27,7 +27,7 @@
         <ul>
             {{#if user}}
                 <li><a id="hrefnav" href="#leg">Legitimeringskort</a></li>
-                <li><a id="hrefnav" href="#contact">Inställningar</a></li>
+                <li><a id="hrefnav" href="/settings">Inställningar</a></li>
                 <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
             {{else}}
@@ -43,7 +43,7 @@
         <div class="hamburger">
             <div id="myLinks">
                 <a href="/profile">Konto - {{user.name}}</a>
-                 <a href="#contact">Inställningar</a>
+                 <a href="/settings">Inställningar</a>
                  <a href="#about">Legitimeringskort</a>
                  <a href="/auth/logout">Logga ut</a>
             </div>
