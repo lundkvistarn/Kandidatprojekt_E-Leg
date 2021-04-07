@@ -10,6 +10,6 @@ router.post('/login', authController.login); //n�r n�gon klickar p� login 
 
 router.get('/logout', authController.logout); //n�r n�gon klickar p� logut k�rs funktionen logout i auth.js - AL
 
-router.get('/changePassword', authController.changePassword); //n�r n�gon klickar p� logut k�rs funktionen logout i auth.js - AL
+router.post('/changePassword', authController.changePassword); //n�r n�gon klickar p� logut k�rs funktionen logout i auth.js - AL
 
 module.exports = router; //exportar router - AL
