@@ -27,14 +27,12 @@ nav li {
 
 nav li a{
     color: #fff;
-    text-decoration: none;
     font-weight: bold;
     padding: 5px;
 }
 
 nav li a:hover {
     color: yellow;
-    text-decoration: none;
 }
 
 .entire_screen {

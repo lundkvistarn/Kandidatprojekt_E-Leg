@@ -26,7 +26,7 @@
 
         <ul>
             {{#if user}}
-                <li><a id="hrefnav" href="#leg">Legitimeringskort</a></li>
+                <li><a href="#leg">Legitimeringskort</a></li>
                 <li><a id="hrefnav" href="/settings">Inställningar</a></li>
                 <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
@@ -35,11 +35,9 @@
                 <li><a id="hrefnav" href="/register">Register</a></li>
             {{/if}}
         </ul>
-
     </nav>
 
     <div class="navbar">
-
         <div class="hamburger">
             <div id="myLinks">
                 <a href="/profile">Konto - {{user.name}}</a>
@@ -51,11 +49,9 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-
     </div>
 
     <div class="entire_screen">
-
         <div class="welcome_container">
             <h5 class="card-title"> Välkommen {{user.name}}</h5>
         </div>
@@ -78,7 +74,6 @@
                 <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
             </div>
         </div>
-
     </div>
 
 </body>
