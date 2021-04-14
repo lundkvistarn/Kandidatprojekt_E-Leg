@@ -12,6 +12,6 @@ router.get('/logout', authController.logout); //n�r n�gon klickar p� logut
 
 router.post('/changePassword', authController.changePassword); //n�r n�gon klickar p� logut k�rs funktionen logout i auth.js - AL
 
-router.get('/active_leg', authController.active_leg);
+//router.get('/activeleg', authController.activeleg);
 
 module.exports = router; //exportar router - AL
