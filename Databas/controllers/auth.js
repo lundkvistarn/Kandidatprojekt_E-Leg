@@ -145,7 +145,7 @@ exports.logout = async (req, res) => {
     res.status(200).redirect('/');
 }
 
-exports.legitimera = async (req, res) => {
+exports.legitimera = async (req, res) => { //avsändare
 
     const { email } = req.body; //hämtar email från formuläret
 
@@ -153,20 +153,76 @@ exports.legitimera = async (req, res) => {
             return res.status(400).render('legitimera', {message: 'Please provide a valid email'})
         }
 
-        db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => { //query f�r att f� emailen - AL
+        db.query('SELECT id FROM users WHERE email = ?', [email], async (error, results) => { //query f�r att f� emailen - AL
             console.log(results);
 
-            if (!results) { //om mailen inte finns eller l�senordet �r fel - AL
+            if (results.length<1) { //om mailen inte finns eller l�senordet �r fel - AL
                 console.log("Mejlen fanns inte");
                 return res.render('legitimera', { message: 'No corresponding email found' })
                 
             }
             else {
+                if (req.cookies.jwt) {
+                    try {
+                        const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+                        db.query('INSERT INTO requests SET ?', { senderID: [decoded.id], receiverID: results[0].id}, (error, results) => {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log("success");         
+                            }
+                        })
+            
+                    } catch (error) {
+                        console.log(error);
+                    }
+                } 
+
                 console.log("Skickat");
-                return res.render('legitimera', {message: 'Request sent'})
+                //this.sendRequest(result); //skickar request till den användaren som hittades
+                //return res.render('legitimera', {message: 'Request sent'})
             }
             
         })
 
-    //res.status(200).redirect('/legitimera');
+
+        // db.query('SHOW TABLES', async (error, results) => { console.log(results);})
+       
+
+
+
+    
+
+
+    //res.status(200).redirect('/legitimera');pkill -f node
+}
+
+//listen for request?
+//db table för pending request? "select * from pending requests where receiver=$user". aktiveras när man går in på den delen av hemsidan ist för run{}?
+
+exports.forfragningar = async (req, res) => { //mottagare
+    console.log("Visiting your requests page.");
+    
+    
+            if (req.cookies.jwt) {
+                try {
+                    const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+                    db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, results) => {
+                        if (error) {
+                            console.log(error);
+                        } 
+                        if (results.length<1) { //om mailen inte finns eller l�senordet �r fel - AL
+                            console.log("Inga requests.");           
+                        }
+                        else {
+                            console.log("You have pending reuests.");
+                            console.log(results);                            
+                        }
+                    })
+        
+                } catch (error) {
+                    console.log(error);
+                }
+            } 
+            console.log("Done checking request table.");  
 }

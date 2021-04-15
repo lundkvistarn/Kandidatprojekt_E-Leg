@@ -11,6 +11,8 @@ router.post('/register', authController.register) //n�r n�gon klickar p� r
 
 router.post('/legitimera', authController.legitimera) 
 
+router.get('/forfragningar', authController.forfragningar) 
+
 router.post('/login', authController.login); //n�r n�gon klickar p� login k�rs funktionen login i auth.js - AL
 
 router.get('/logout', authController.logout); //n�r n�gon klickar p� logut k�rs funktionen logout i auth.js - AL
