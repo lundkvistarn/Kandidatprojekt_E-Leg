@@ -176,18 +176,18 @@ nav li a:hover {
 
 /* unvisited link */
 a:link {
-    color:rgb(27, 27, 27);
+    color:rgb(148, 148, 148);
     text-decoration: none;
   }
   
   /* visited link */
   a:visited {
-    color: rgb(255, 255, 255);
+    color:rgb(148, 148, 148);
   }
   
   /* mouse over link */
   a:hover {
-    color: rgb(170, 170, 170);
+    color:rgb(245, 245, 245);
   }
   
   /* selected link */
@@ -405,7 +405,7 @@ hr.style-six {
 
     #loggaut_information_line {
         display: block;
-        color: black;
+        color:rgb(148, 148, 148);
     }
 
     /* ------------- Information - Kontakt, säkerhet... -------------- */
