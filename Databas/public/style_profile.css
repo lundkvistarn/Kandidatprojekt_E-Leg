@@ -244,8 +244,13 @@ nav li a:hover {
 }
 
 .form-group {
-    width: 300px;
-    margin: 25px;
+    width: 500px;
+    margin: 30px;
+}
+
+.form-control {
+    height: 50px;
+    font-size: 20px;
 }
 
 #ss_changepassword {
@@ -516,6 +521,15 @@ hr.style-six {
         left: 50%;
         margin: -85px 0 0 -170px;
         width: 340px;
+    }
+
+    .form-group {
+        width: 250px;
+    }
+    
+    .form-control {
+        height: 30px;
+        font-size: 16px;
     }
 }
 
