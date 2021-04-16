@@ -1,145 +1,230 @@
-var mysql = require('mysql');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const { promisify } = require('util');
+var mysql = require("mysql");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
 
 //connectar till databasen
 const db = mysql.createConnection({
-    host: process.env.DATABAS_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+  host: process.env.DATABAS_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE,
+  port: process.env.DATABASE_PORT,
 });
 
-
 exports.login = async (req, res) => {
-    try {
+  try {
+    const { email, password } = req.body;
 
-        const { email, password } = req.body;
-
-        if (!email || !password) { //om emailen eller passwordet är "olagliga" eller rutorna är tomma - AL
-            return res.status(400).render('login', {
-                message: 'Please provide an email and password'
-            })
-        }
-
-        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => { //query för att få emailen - AL
-            console.log(results);
-
-            if (!results || !(await bcrypt.compare(password, results[0].password))) { //om mailen inte finns eller lösenordet är fel - AL
-                res.status(401).render('login', {
-                    message: 'Email or password is incorrect'
-                })
-                
-            }
-            else {
-                const id = results[0].id;
-
-                //create token for personal id - AL
-                const token = jwt.sign({ id: id }, process.env.JWT_SECRET, { 
-                   expiresIn: process.env.JWT_EXPIRES_IN
-                });
-                console.log("The token is: " + token);
-
-                //options för cookien
-                const cookieOptions = {
-                    expires: new Date(
-                        Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60* 60* 1000
-                    ),
-                    httpOnly: true //kan bara ge cookie om usern är inne på en http sida - AL
-                }
-                //skickar token till client som en cookie
-                res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/profile");
-            }
-            
-
-        })
-    } catch (error) {
-        console.log(error);
+    if (!email || !password) {
+      //om emailen eller passwordet ï¿½r "olagliga" eller rutorna ï¿½r tomma - AL
+      return res.status(400).render("login", {
+        message: "Please provide an email and password",
+      });
     }
-}
 
+    db.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email],
+      async (error, results) => {
+        //query fï¿½r att fï¿½ emailen - AL
+        console.log(results);
 
-exports.register = (req, res) => {
-    console.log(req.body);
+        if (
+          !results ||
+          !(await bcrypt.compare(password, results[0].password))
+        ) {
+          //om mailen inte finns eller lï¿½senordet ï¿½r fel - AL
+          res.status(401).render("login", {
+            message: "Email or password is incorrect",
+          });
+        } else {
+          const id = results[0].id;
 
+          //create token for personal id - AL
+          const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRES_IN,
+          });
+          console.log("The token is: " + token);
 
-    //skapar variabler för varje ruta i register - AL
-    const { name, email, password, passwordConfirm } = req.body;
+          //options fï¿½r cookien
+          const cookieOptions = {
+            expires: new Date(
+              Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+            ),
+            httpOnly: true, //kan bara ge cookie om usern ï¿½r inne pï¿½ en http sida - AL
+          };
+          //skickar token till client som en cookie
+          res.cookie("jwt", token, cookieOptions);
+          res.status(200).redirect("/profile");
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-    //mysql query för att få email från databasen, gör även att en email bara kan skrivas in en gång och kollar ifall lösenorden stämmer överns med varandra - AL
-    db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
-        if (error) {
+exports.register = async (req, res) => {
+  console.log(req.body);
+
+  //skapar variabler fï¿½r varje ruta i register - AL
+  const { name, email, password, passwordConfirm } = req.body;
+
+  //mysql query fï¿½r att fï¿½ email frï¿½n databasen, gï¿½r ï¿½ven att en email bara kan skrivas in en gï¿½ng och kollar ifall lï¿½senorden stï¿½mmer ï¿½verns med varandra - AL
+  db.query(
+    "SELECT email FROM users WHERE email = ?",
+    [email],
+    async (error, results) => {
+      if (error) {
+        console.log(error);
+      }
+
+      if (results.length > 0) {
+        return res.render("register", {
+          message: "That email is already in use",
+        });
+      } else if (password !== passwordConfirm) {
+        return res.render("register", {
+          message: "The passwords do not match",
+        });
+      }
+
+      //encryptar lï¿½senorden med bcryptjs och hashing - AL
+      let hashedPassword = await bcrypt.hash(password, 8);
+      console.log(hashedPassword);
+
+      //skickar in namn, email och encryptad lï¿½senord till databasen - AL
+      db.query(
+        "INSERT INTO users SET ?",
+        { name: name, email: email, password: hashedPassword },
+        (error, results) => {
+          if (error) {
             console.log(error);
+          } else {
+            console.log(results);
+            return res.render("register", {
+              message: "User registered",
+            });
+          }
         }
-
-        if (results.length > 0) {
-            return res.render('register', {
-                message: 'That email is already in use'
-            })
-        } else if (password !== passwordConfirm) {
-            return res.render('register', {
-                message: 'The passwords do not match'
-            })
-        }
-
-        //encryptar lösenorden med becryptjs och hashing - AL
-        let hashedPassword = await bcrypt.hash(password, 8);
-        console.log(hashedPassword);
-
-        //skickar in namn, email och encryptad lösenord till databasen - AL
-        db.query('INSERT INTO users SET ?', { name: name, email: email, password: hashedPassword }, (error, results) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(results);
-                return res.render('register', {
-                    message: 'User registered'
-                });
-            }
-        })
-    });
-}
+      );
+    }
+  );
+};
 
 exports.isLoggedIn = async (req, res, next) => {
-    //console.log(req.cookies);
+  //console.log(req.cookies);
 
-    //om det finns en cookie med namnet jwt - AL
-    if (req.cookies.jwt) {
-        try {
-            //1) verify token
-            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //jämför userns cookie med lösenordet vi använde för att skapa token vi har sparat i env
-            console.log(decoded);
+  //om det finns en cookie med namnet jwt - AL
+  if (req.cookies.jwt) {
+    try {
+      //verify token
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      ); //jï¿½mfï¿½r userns cookie med lï¿½senordet vi anvï¿½nde fï¿½r att skapa token vi har sparat i env
+      console.log(decoded);
 
-            //check if the user still exists - AL
-            db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
-                console.log(result);
+      //check if the user still exists - AL
+      db.query(
+        "SELECT * FROM users WHERE id = ?",
+        [decoded.id],
+        (error, result) => {
+          console.log(result);
 
-                //om det inte finns något resultat - AL
-                if (!result) {
-                    return next();
-                }
-
-                //skapar ny variabel user med all info om den inloggade usern - AL
-                req.user = result[0];
-                return next();
-            });
-        } catch (error) {
-            console.log(error);
+          //om det inte finns nï¿½got resultat - AL
+          if (!result) {
             return next();
+          }
+
+          //skapar ny variabel user med all info om den inloggade usern - AL
+          req.user = result[0];
+          return next();
         }
-    } else { //om det inte finns en cookie går den vidare  - AL
-        next();
-    } 
-}
+      );
+    } catch (error) {
+      console.log(error);
+      return next();
+    }
+  } else {
+    //om det inte finns en cookie gï¿½r den vidare  - AL
+    next();
+  }
+};
 
-//när användare klickar på logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
+//nï¿½r anvï¿½ndare klickar pï¿½ logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
 exports.logout = async (req, res) => {
-    res.cookie('jwt', 'logout', {
-        expires: new Date(Date.now() + 2 * 1000),
-        httpOnly: true //kan bara göras från en http browser, skyddar mot attacker  - AL
-    });
+  res.cookie("jwt", "logout", {
+    expires: new Date(Date.now() + 2 * 1000),
+    httpOnly: true, //kan bara gï¿½ras frï¿½n en http browser, skyddar mot attacker  - AL
+  });
 
-    res.status(200).redirect('/');
-}
+  res.status(200).redirect("/");
+};
+
+exports.changePassword = async (req, res) => {
+  try {
+    const decoded = await promisify(jwt.verify)(
+      req.cookies.jwt,
+      process.env.JWT_SECRET
+    ); //jï¿½mfï¿½r userns cookie med lï¿½senordet vi anvï¿½nde fï¿½r att skapa token vi har sparat i env
+    console.log(decoded);
+    console.log(req.body);
+
+    //skapar variabler fï¿½r varje ruta i register - AL
+    const { password, newpassword, passwordConfirm } = req.body;
+
+    if (!password || !newpassword || !passwordConfirm) {
+      //om emailen eller passwordet ï¿½r "olagliga" eller rutorna ï¿½r tomma - AL
+      return res.status(400).render("profile", {
+        message: "Please enter all fields",
+      });
+    }
+
+    //mysql query fï¿½r att fï¿½ email frï¿½n databasen, gï¿½r ï¿½ven att en email bara kan skrivas in en gï¿½ng och kollar ifall lï¿½senorden stï¿½mmer ï¿½verns med varandra - AL
+    db.query(
+      "SELECT password FROM users WHERE id = ?",
+      [decoded.id],
+      async (error, results) => {
+        if (error) {
+          console.log(error);
+        }
+
+        if (!(await bcrypt.compare(password, results[0].password))) {
+          return res.render("profile", {
+            message: "The current password is incorrect",
+          });
+        } else if (newpassword !== passwordConfirm) {
+          return res.render("profile", {
+            message: "The passwords do not match",
+          });
+        }
+
+        //encryptar lï¿½senorden med becryptjs och hashing - AL
+        let hashedPassword = await bcrypt.hash(newpassword, 8);
+        console.log(hashedPassword);
+
+        var insertQuery =
+          "UPDATE `users` SET `password` = '" +
+          hashedPassword +
+          "' WHERE ID = " +
+          decoded.id +
+          ";";
+        //skickar in namn, email och encryptad lï¿½senord till databasen - AL
+        db.query(insertQuery, (error, results) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(results);
+            return res.render("profile", {
+              message: "Password changed",
+            });
+          }
+        });
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};

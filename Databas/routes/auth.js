@@ -1,16 +1,15 @@
-const express = require('express');
-const authController = require('../controllers/auth');
-
-const verify = require('../middleware');
-//router.use('/profile', verify, router);
+const express = require("express");
+const authController = require("../controllers/auth");
 
 const router = express.Router();
 
-//när register formen submittas datan - AL
-router.post('/register', authController.register) //när någon klickar på register körs funktionen register i auth.js - AL
+//nï¿½r register formen submittas datan - AL
+router.post("/register", authController.register); //nï¿½r nï¿½gon klickar pï¿½ register kï¿½rs funktionen register i auth.js - AL
 
-router.post('/login', authController.login); //när någon klickar på login körs funktionen login i auth.js - AL
+router.post("/login", authController.login); //nï¿½r nï¿½gon klickar pï¿½ login kï¿½rs funktionen login i auth.js - AL
 
-router.get('/logout', authController.logout); //när någon klickar på logut körs funktionen logout i auth.js - AL
+router.get("/logout", authController.logout); //nï¿½r nï¿½gon klickar pï¿½ logut kï¿½rs funktionen logout i auth.js - AL
+
+router.post("/changePassword", authController.changePassword); //nï¿½r nï¿½gon klickar pï¿½ register kï¿½rs funktionen register i auth.js - AL
 
 module.exports = router; //exportar router - AL
