@@ -14,4 +14,6 @@ router.post('/changePassword', authController.changePassword); //n�r n�gon k
 
 //router.get('/activeleg', authController.activeleg);
 
+//router.get('/new_request', authController.activeleg);
+
 module.exports = router; //exportar router - AL

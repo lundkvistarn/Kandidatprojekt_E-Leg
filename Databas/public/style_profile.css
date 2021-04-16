@@ -150,6 +150,72 @@ nav li a:hover {
     color: #ddd;
 }
 
+/* ---------- Förfrågningar --------------*/
+
+.white_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*position*/
+    position: fixed;
+    width: 630px;
+    z-index: 15;
+    top: 36%;
+    left: 50%;
+    margin: -100px 0 0 -315px;
+
+    /*utseende*/
+	background-color: #ffffff;
+	border: 0px solid rgb(0, 0, 0);
+	border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
+#ver {
+    height: 400px; 
+    width: 600px;
+    overflow-y: scroll;
+    overflow-X: hidden; 
+    
+}
+#ver::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#ver::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#ver::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.6);
+   
+}
+.verifikation {
+    background-color: #0D0F25;
+    color: white;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.stroke {
+    height: 60px;
+    border-left: 1px solid white;
+
+
+}
+
 /* ----------  Länkar, text, linjer, knappar mm. -------------- */
 
 .links {
