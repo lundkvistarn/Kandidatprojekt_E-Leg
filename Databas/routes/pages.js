@@ -27,14 +27,19 @@ router.get('/login', (req, res) => {
 
 router.get('/legitimera', authController.isLoggedIn, (req, res) => {
         
-    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+    //Legitimering går bara att komma åt när man väl är inloggad - RG
+    //Samma princip som profile
     if (req.user) {
         res.render('legitimera', {
-            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+            user: req.user //skickar varibeln user så den kan användas i profile.hbs - AL
         });
     } else {
         res.redirect('/login');
     }
+});
+
+router.get('/qr_kod', (req, res) => { 
+    res.render('qr_kod');
 });
 
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
@@ -50,5 +55,6 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     }
     
 });
+
 
 module.exports = router; //exportar router - AL
