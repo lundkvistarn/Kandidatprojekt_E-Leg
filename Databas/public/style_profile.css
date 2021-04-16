@@ -492,6 +492,18 @@ hr.style-six {
         color:rgb(148, 148, 148);
     }
 
+    .white_box {
+        /*position*/
+        position: fixed;
+        width: 340px;
+        margin: -50px 0 0 -170px;
+    }
+
+    #ver {
+        /*position*/
+        width: 340px;
+    }
+
     /* ------------- Information - Kontakt, säkerhet... -------------- */
 
     .information_line{
@@ -503,8 +515,6 @@ hr.style-six {
         margin: -85px 0 0 -170px;
         width: 340px;
     }
-
-    
 }
 
 @media only screen and (max-height: 703px){ 
