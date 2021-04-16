@@ -26,22 +26,24 @@
 
         <ul>
             {{#if user}}
-                <li><a id="hrefnav" href="/profile">Hem</a></li>
+                <li><a href="#leg">Legitimeringskort</a></li>
+                <li><a id="hrefnav" href="/settings">Inställningar</a></li>
+                <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
             {{else}}
                 <li><a id="hrefnav" href="/login">Login</a></li>
                 <li><a id="hrefnav" href="/register">Register</a></li>
             {{/if}}
         </ul>
-
     </nav>
 
     <div class="navbar">
-
         <div class="hamburger">
             <div id="myLinks">
-                <a href="/profile">Hem</a>
-                <a href="/auth/logout">Logga ut</a>
+                <a href="/profile">Konto - {{user.name}}</a>
+                 <a href="/settings">Inställningar</a>
+                 <a href="#about">Legitimeringskort</a>
+                 <a href="/auth/logout">Logga ut</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>

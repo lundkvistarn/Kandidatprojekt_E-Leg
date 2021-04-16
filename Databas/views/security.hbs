@@ -1,82 +1,97 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Identi</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-  
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_profile.css">
     <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
-    <link rel="stylesheet" type="text/css" href="../css/säkerhet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
 
-<div class="upper_container">
 
-    <div class="hamburger">
+    <title>Identi</title>
+</head>
+<body>
+
+    <div class="top_bar">
+        <img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/>
+        <h4 id="textLogo_top_bar">Identi </h4>
+    </div>
+
+    <nav>
+        <div class="logowithtext_nav">
+            <img src="../logo_identi.svg" alt ="this is our logo" id="logo_nav"/>
+            <h4 id="textLogo"> Identi </h4>
+        </div> 
+
+        <ul>
+            {{#if user}}
+                <li><a href="#legcons">Legitimeringskort</a></li>
+                <li><a id="hrefnav" href="/settings">Inställningar</a></li>
+                <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
+                <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
+            {{else}}
+                <li><a id="hrefnav" href="/login">Login</a></li>
+                <li><a id="hrefnav" href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    <div class="navbar">
+        <div class="hamburger">
             <div id="myLinks">
-                 <a href="#news">Profil</a>
-                 <a href="#contact">Inställningar</a>
+                <a href="/profile">Konto - {{user.name}}</a>
+                 <a href="/settings">Inställningar</a>
                  <a href="#about">Legitimeringskort</a>
+                 <a href="/auth/logout">Logga ut</a>
             </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
     </div>
 
-    <div class="breadcrumb"> 
-        <p class="pText">Hem -> Säkerhet</p>
-    </div>
+    <div class="entire_screen">
 
-    <div class="logout">
-        <a href="javascript:void(0);" class="icon" onclick="">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+        <div class="welcome_container">
+            <h5 class="card-title"> Säkerhet </h5>
+        </div>
 
-    <!-- ++++++++ the log out button ++++++++++ <div class="logout"> <button class="button" id="loggaut">Logga ut</button> </div> -->
-
-</div>
-
-
-<div class="button_container">
-
-
-    <div class="textbox_safety">
-
-        <h2> Din säkerhet - <br> Vår prioritet </h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        <div class="button_container" id="bc_text">
+            
+            <p id="brodtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-             ullamco laboris nisi ut aliquip ex ea commodo consequat. <br> <br>
-             Duis aute irure dolor in reprehenderit in 
-        </p>
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum. 
+            </p>
+            
+        </div>
+
+        <div class="get_back"> 
+            <form method="GET" action="/profile">
+                <button class="button" type="submit">Tillbaka</button>
+            </form>  
+        </div>
+
+        <div class="information_container">
+            <div class="line">
+                <hr class="style-six"> </hr>
+            </div>
+
+            <div class="information_line">
+                <a href="/about_us">Om oss</a>
+                <a href="/security">Säkerhet</a>
+                <a href="/contact">Kontakt</a>
+                <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
+            </div>
+        </div>
     </div>
-         
-</div>
 
-
-<div class="information_container">
-
-    <div class="line">
-        <hr class="style-six"> </hr>
-    </div>
-     
-    <div class="information_line">
-
-    <a href="url">Om oss</a>
-    <a href="url">Säkerhet</a>
-    <a href="url">Kontakt</a>
-
-    </div>
-         
-</div>
-
-    
-
-  </body>
-
+</body>
 </html>
+
+
 
 <script>
     function myFunction() {
@@ -88,3 +103,36 @@
         }
     }
 </script>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Identi</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+
+    <link rel="stylesheet" type="text/css" href="../css/om_oss.css">
+  </head>
+  <body>
+
+    <div id="wrapper"><a class="link" href="index.html"><div id="logga"></div> </a><h2>LET'S IDENTIFY</h2> </div>
+    
+    <div class="square">
+        <p id="namn">Om oss</p>
+        <p id="brodtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+             sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    </div>
+
+
+  </body>
+</html>
+
+-->
