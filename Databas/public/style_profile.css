@@ -168,6 +168,7 @@ nav li a:hover {
     /*position*/
     position: fixed;
     width: 630px;
+    height: 430px;
     z-index: 15;
     top: 36%;
     left: 50%;
@@ -496,6 +497,7 @@ hr.style-six {
         /*position*/
         position: fixed;
         width: 340px;
+        height: 400px;
         margin: -50px 0 0 -170px;
     }
 
