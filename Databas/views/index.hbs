@@ -1,25 +1,31 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
     <title>Start sida</title>
 </head>
+
 <body>
 
     <nav>
         <h4> Välkommen! MySQL</h4>
         <ul>
-            <li><a href="/">Home</a></li>
+            
             {{#if user}}
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/legitimera">Verifera</a></li>
-                <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Profile">Profile</a></li>
+            <li><a href="/legitimera">Verifera</a></li>
+            <li><a href="/qr_code">qr_code</a></li>
+            <li><a href="/auth/forfragningar">Fofragningar</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
             {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
             {{/if}}
         </ul>
 
@@ -28,7 +34,8 @@
     <div class="container mt-4">
 
     </div>
-        
+
 
 </body>
+
 </html>

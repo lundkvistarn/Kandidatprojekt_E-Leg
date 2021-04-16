@@ -38,8 +38,8 @@ router.get('/legitimera', authController.isLoggedIn, (req, res) => {
     }
 });
 
-router.get('/qr_kod', (req, res) => { 
-    res.render('qr_kod');
+router.get('/qr_code', (req, res) => { 
+    res.render('qr_code');
 });
 
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
