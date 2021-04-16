@@ -26,7 +26,7 @@
 
         <ul>
             {{#if user}}
-                <li><a href="#leg">Legitimeringskort</a></li>
+                <li><a href="#legcons">Legitimeringskort</a></li>
                 <li><a id="hrefnav" href="/settings">Inställningar</a></li>
                 <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
@@ -61,7 +61,7 @@
             <form method="GET" action="/activeleg">
                 <button class="button" type="submit">Förfråga legitimering</button>
             </form>  
-            <form method="GET" action="">
+            <form method="GET" action="/confirm_request">
                 <button class="button" type="submit">Bekräfta legitimering</button>
             </form>
             <form method="GET" action="">
@@ -76,9 +76,9 @@
             </div>
 
             <div class="information_line">
-                <a href="url">Om oss</a>
-                <a href="url">Säkerhet</a>
-                <a href="url">Kontakt</a>
+                <a href="/about_us">Om oss</a>
+                <a href="/security">Säkerhet</a>
+                <a href="/contact">Kontakt</a>
                 <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
             </div>
         </div>

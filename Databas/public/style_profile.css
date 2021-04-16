@@ -122,6 +122,13 @@ nav li a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 
+#bc_text {
+    background-color:rgba(0, 0, 0, 0);
+    box-shadow: none;
+}
+
+
+
 #bc_changepassword {
     /*position*/
     position: fixed;
@@ -148,6 +155,14 @@ nav li a:hover {
     margin: -100px 0 0 -315px;
 
     color: #ddd;
+}
+
+.get_back {
+
+    /*position*/
+    position: fixed;
+    z-index: 15;
+    top: 70%;
 }
 
 /* ----------  Länkar, text, linjer, knappar mm. -------------- */
@@ -215,6 +230,10 @@ hr.style-six {
 #logga {
     width: 10px;
     background-image: url("../img/logo_identi.svg");
+}
+
+#brodtext {
+    color: rgb(204, 204, 204);
 }
 
 
@@ -326,7 +345,8 @@ hr.style-six {
     .navbar {
         display: block;
         background-color: rgb(255, 255, 255);
-        color: rgb(0, 2, 27);
+        border: 1px solid rgb(0, 225, 255);
+        color: rgb(96, 231, 255);
         z-index: 100;
     }
 
