@@ -111,7 +111,7 @@ nav li a:hover {
     position: fixed;
     width: 630px;
     z-index: 15;
-    top: 36%;
+    top: 40%;
     left: 50%;
     margin: -100px 0 0 -315px;
 
@@ -132,10 +132,9 @@ nav li a:hover {
 #bc_changepassword {
     /*position*/
     position: fixed;
-    width: 340px;
     z-index: 0;
     left: 50%;
-    margin: -50px 0 0 -170px;
+    margin: -50px 0 0 -315px;
 }
 
 
@@ -153,7 +152,6 @@ nav li a:hover {
     top: 30%;
     left: 50%;
     margin: -100px 0 0 -315px;
-
     color: #ddd;
 }
 
@@ -168,9 +166,9 @@ nav li a:hover {
     /*position*/
     position: fixed;
     width: 630px;
-    height: 430px;
+    height: 400px;
     z-index: 15;
-    top: 36%;
+    top: 40%;
     left: 50%;
     margin: -100px 0 0 -315px;
 
@@ -206,8 +204,9 @@ nav li a:hover {
 	background-color: rgba(0,0,0,0.6);
    
 }
+
 .verifikation {
-    background-color: #0D0F25;
+    background-color: #1f698b;
     color: white;
     display: flex;
     justify-content:space-between;
@@ -217,18 +216,33 @@ nav li a:hover {
     padding: 5px;
 }
 
+#verifikation_ok {
+    background-color: #2bbb37;
+}
+
 .stroke {
     height: 60px;
     border-left: 1px solid white;
 }
 
 .get_back {
-
     /*position*/
     position: fixed;
     z-index: 15;
     top: 70%;
 }
+
+#gb_twobuttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#b_gb_twobuttons {
+    margin: 17px;
+    width: 300px;
+}
+
+
 
 /* ----------  Länkar, text, linjer, knappar mm. -------------- */
 
@@ -254,8 +268,7 @@ nav li a:hover {
 }
 
 #ss_changepassword {
-    width: 310px;
-    margin-left: 20px;
+    width: 560px;
     border-bottom: 0px;
 }
 
@@ -280,6 +293,10 @@ a:link {
     color: rgb(27, 27, 27);
   }
 
+  #active_breadcrumb {
+      color: white;
+  }
+
 
 hr.style-six {
     border: 0;
@@ -301,12 +318,14 @@ hr.style-six {
     width: 10px;
     background-image: url("../img/logo_identi.svg");
 }
-
-#brodtext {
-    color: rgb(204, 204, 204);
+ 
+#checkmark {
+    margin: 20px;
 }
 
-
+#brodtext {
+    color: rgb(231, 231, 231);
+}
 
 /* ------------- Information - Kontakt, säkerhet... -------------- */
 
@@ -379,7 +398,7 @@ hr.style-six {
 }
 
 #b_changepassword {
-    width: 308px;
+    width: 500px;
 }
 
 
@@ -493,6 +512,21 @@ hr.style-six {
         width: 308px;
     }
 
+    #b_changepassword {
+        width: 250px;
+    }
+
+    #b_gb_twobuttons {
+        margin: 17px;
+        width: 170px;
+    }
+
+    #ss_changepassword {
+        width: 310px;
+        border-bottom: 0px;
+    }
+    
+
     #loggaut_information_line {
         display: block;
         color:rgb(148, 148, 148);
@@ -502,7 +536,7 @@ hr.style-six {
         /*position*/
         position: fixed;
         width: 340px;
-        height: 400px;
+        height: 350px;
         margin: -50px 0 0 -170px;
     }
 
