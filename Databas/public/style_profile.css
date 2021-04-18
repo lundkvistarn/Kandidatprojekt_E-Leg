@@ -109,23 +109,24 @@ nav li a:hover {
 
     /*position*/
     position: fixed;
-    width: 630px;
+    width: 590px;
     z-index: 15;
     top: 40%;
     left: 50%;
-    margin: -100px 0 0 -315px;
+    margin: -100px 0 0 -295px;
 
     /*utseende*/
 	background-color: #ffffff;
 	border: 0px solid rgb(0, 0, 0);
-	border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+	border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.308), 0 6px 20px 0 rgba(0, 0, 0, 0.267);  
 }
 
 #bc_text {
     background-color:rgba(0, 0, 0, 0);
     box-shadow: none;
 }
+
 
 
 
@@ -178,6 +179,14 @@ nav li a:hover {
 	border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
+
+.center_text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 
 #ver {
     height: 400px; 
@@ -366,7 +375,7 @@ hr.style-six {
     position: fixed;
 
     width: 630px;
-}
+}   
 
 /* ------------- Buttons -------------- */
 
@@ -381,11 +390,11 @@ hr.style-six {
 
     /*utseende*/
     border: rgb(255, 255, 255);
-    background-color: #0D0F25;
     color: #ffffff;
     text-decoration: none;
     text-size-adjust: 20px;
     cursor: pointer;
+    background-color: #0D0F25;
 
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.2);

@@ -26,9 +26,7 @@
 
         <ul>
             {{#if user}}
-                <li><a href="#legcons">Legitimeringskort</a></li>
-                <li><a id="hrefnav" href="/settings">Inställningar</a></li>
-                <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
+                <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
             {{else}}
                 <li><a id="hrefnav" href="/login">Login</a></li>
@@ -40,9 +38,7 @@
     <div class="navbar">
         <div class="hamburger">
             <div id="myLinks">
-                <a href="/profile">Konto - {{user.name}}</a>
-                 <a href="/settings">Inställningar</a>
-                 <a href="#about">Legitimeringskort</a>
+                 <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
                  <a href="/auth/logout">Logga ut</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -53,7 +49,7 @@
 
     <div class="entire_screen">
         <div class="welcome_container">
-            <h5 class="card-title"> Välkommen {{user.name}}</h5>
+            <h5 class="card-title"> Välkommen, {{user.name}}</h5>
         </div>
 
         <div class="button_container">
@@ -65,7 +61,7 @@
                 <button class="button" type="submit">Bekräfta legitimering</button>
             </form>
             <form method="GET" action="">
-                <button class="button" type="submit">E-mail</button>
+                <button class="button" type="submit"> <i class="fa fa-qrcode    "></i> Legitimera med QR-kod</button>
             </form>
             
         </div>

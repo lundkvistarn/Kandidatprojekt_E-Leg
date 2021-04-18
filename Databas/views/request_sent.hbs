@@ -26,9 +26,7 @@
 
         <ul>
             {{#if user}}
-                <li><a href="#leg">Legitimeringskort</a></li>
-                <li><a id="hrefnav" href="/settings">Inställningar</a></li>
-                <li><a id="hrefnav" href="/profile">{{user.name}}</a></li>
+                <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
                 <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
             {{else}}
                 <li><a id="hrefnav" href="/login">Login</a></li>
@@ -40,16 +38,13 @@
     <div class="navbar">
         <div class="hamburger">
             <div id="myLinks">
-                <a href="/profile">Konto - {{user.name}}</a>
-                 <a href="/settings">Inställningar</a>
-                 <a href="#about">Legitimeringskort</a>
+                 <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
                  <a href="/auth/logout">Logga ut</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-
     </div>
 
     <div class="entire_screen">
@@ -63,9 +58,11 @@
 
         <div class="button_container" id="bc_text">
             <img src="../checkmark.png" id="checkmark" alt="checkmark">
-            <p id="brodtext">Vi har bekräftat att förfrågan har skickats! <br> <br>
-            Du kan nu återgå medan du väntar på svar <br> eller skapa en ny förfrågan</p>
 
+            <div class="center_text">
+                <p id="brodtext">Din förfrågan till Calle har skickats! </p>
+                <p id="brodtext"> Du kan nu återgå medan du väntar på svar eller skapa en ny förfrågan</p> 
+            </div>  
         </div>
 
         <div class="get_back" id="gb_twobuttons"> 
