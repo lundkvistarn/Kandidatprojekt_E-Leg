@@ -201,6 +201,7 @@ exports.changePassword = async (req, res) => {
 }
 
 
+
 exports.new_request = async (req, res) => { //avsändare
 
     const { email } = req.body; //hämtar email från formuläret
@@ -225,6 +226,7 @@ exports.new_request = async (req, res) => { //avsändare
                             if (error) {
                                 console.log(error);
                             } else {
+                                
                                 console.log("success");         
                             }
                         })
@@ -233,8 +235,9 @@ exports.new_request = async (req, res) => { //avsändare
                         console.log(error);
                     }
                 } 
-
+                
                 console.log("Skickat");
+                res.render('request_sent');
                 //this.sendRequest(result); //skickar request till den användaren som hittades
                 //return res.render('legitimera', {message: 'Request sent'})
             }

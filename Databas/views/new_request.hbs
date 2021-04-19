@@ -56,13 +56,13 @@
         </div>
 
         <div class="button_container">
-            <form action="request_sent" method="GET">
+            <form action="/auth/new_request" method="POST">
 
                 <div class="form-group">
-                    <input class="form-control" placeholder="Person- eller mobilnummer" />
+                    <input type="email" class="form-control" name="email" placeholder="Email" />
                 </div>
 
-                <button class="button" type="submit">Skicka</button>
+                <button class="button" type="submit">Skicka förfrågan</button>
             </form>  
         </div>
 
