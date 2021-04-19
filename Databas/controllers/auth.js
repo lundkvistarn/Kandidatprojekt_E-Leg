@@ -198,6 +198,55 @@ exports.changePassword = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
-
 }
+
+
+exports.new_request = async (req, res) => { //avsändare
+
+    const { email } = req.body; //hämtar email från formuläret
+
+        if (!email) { //om emailen �r "olagliga" eller rutorna �r tomma - AL
+            return res.status(400).render('new_request', {message: 'Please provide a valid email'})
+        }
+
+        db.query('SELECT id FROM users WHERE email = ?', [email], async (error, results) => { //query f�r att f� emailen - AL
+            console.log(results);
+
+            if (results.length<1) { //om mailen inte finns eller l�senordet �r fel - AL
+                console.log("Mejlen fanns inte");
+                return res.render('new_request', { message: 'No corresponding email found' })
+                
+            }
+            else {
+                if (req.cookies.jwt) {
+                    try {
+                        const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+                        db.query('INSERT INTO requests SET ?', { senderID: [decoded.id], receiverID: results[0].id}, (error, results) => {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log("success");         
+                            }
+                        })
+            
+                    } catch (error) {
+                        console.log(error);
+                    }
+                } 
+
+                console.log("Skickat");
+                //this.sendRequest(result); //skickar request till den användaren som hittades
+                //return res.render('legitimera', {message: 'Request sent'})
+            }
+            
+        })
+
+
+        // db.query('SHOW TABLES', async (error, results) => { console.log(results);})
+
+
+    //res.status(200).redirect('/legitimera');pkill -f node
+}
+
+
+
