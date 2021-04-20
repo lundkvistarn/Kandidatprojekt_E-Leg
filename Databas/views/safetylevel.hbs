@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_profile.css">
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Identify</title>
+</head>
+<body>
+
+        <div class="top_bar">
+            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/></a>
+            <h4 id="textLogo_top_bar">Identify </h4>
+        </div> 
+
+    <nav>
+        <div class="logowithtext_nav">
+            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_nav"/></a>
+            <h4 id="textLogo"> Identify </h4>
+        </div> 
+
+        <ul>
+            {{#if user}}
+                <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
+                <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
+            {{else}}
+                <li><a id="hrefnav" href="/login">Login</a></li>
+                <li><a id="hrefnav" href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    <div class="navbar">
+        <div class="hamburger">
+            <div id="myLinks">
+                 <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
+                 <a href="/auth/logout">Logga ut</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="entire_screen">
+
+        <div class="welcome_container">
+            <h6 class="card-title"> <a href="/profile">Hem</a> -> <a href="/settings">Inställningar</a> -> <a href="/safetylevel" id="active_breadcrumb">Säkerhetsnivå</a></h6>
+        </div>
+
+        <div class="button_container"> 
+
+            <div class="titleText">
+                <h3> Nuvarande säkerhetsnivå: </h3> 
+            </div>
+                
+            <div class="stepProgressBar">
+
+                <div class="step">
+                    <p class="step-text"> Låg</p>
+                    <div class="bullet completed">1</div>
+                </div>
+
+                <div class="step">
+                    <p class="step-text"> Medel</p>
+                    <div class="bullet">2</div>
+                </div>
+
+                <div class="step">
+                    <p class="step-text"> Stark</p>
+                    <div class="bullet">3</div>
+                </div>
+
+            </div>
+
+            <form method="GET" action="/profile">
+                <button class="button" id="b_upgrade" type="submit"> Uppgradera till säkerhetsnivå: &nbsp;&nbsp; <h4 id="nextLevel"></h4> </button>
+            </form>  
+        </div>
+
+        <div class="information_container">
+            <div class="line">
+                <hr class="style-six"> </hr>
+            </div>
+
+            <div class="information_line">
+                <a href="/about_us">Om oss</a>
+                <a href="/security">Säkerhet</a>
+                <a href="/contact">Kontakt</a>
+                <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    const content = document.getElementById('content');
+    const bullets = [...document.querySelectorAll('.bullet')];
+    const b_upgrade = document.getElementById('b_upgrade');
+
+    const MAX_STEPS = 4; 
+    let currentStep = 1;
+
+    var nextLevel = {{user.safetylevel}} + 1;
+    document.getElementById('nextLevel').innerHTML = nextLevel;
+
+    if ( {{user.safetylevel}} == 1){
+        const currentBullet = bullets[0];
+        currentBullet.classList.add('completed');
+        
+    }
+    if ( {{user.safetylevel}} == 2){
+        const currentBullet = bullets[1];
+        currentBullet.classList.add('completed');
+    }
+    if ( {{user.safetylevel}} == 3){
+        const currentBullet = bullets[2];
+        currentBullet.classList.add('completed');
+        b_upgrade.disabled = true;
+        document.getElementById('nextLevel').innerHTML = "högsta nivå uppfylld";
+    }
+
+    
+
+</script>

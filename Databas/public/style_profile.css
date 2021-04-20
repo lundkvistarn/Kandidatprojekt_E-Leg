@@ -18,7 +18,7 @@ nav {
 }
 
 .top_bar {
-    background-color:rgb(107, 206, 207);
+    background-color:  rgb(7, 51, 83);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,8 +126,6 @@ nav li a:hover {
     background-color:rgba(0, 0, 0, 0);
     box-shadow: none;
 }
-
-
 
 
 #bc_changepassword {
@@ -384,6 +382,11 @@ hr.style-six {
     height: 80px;
     width: 560px;
 
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
     /*position*/
     margin-top: 15px;
     margin-bottom: 15px;
@@ -409,6 +412,69 @@ hr.style-six {
 #b_changepassword {
     width: 500px;
 }
+
+
+/* ------------- Safetylevel -------------- */
+
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.titleText {
+    margin-top: 40px;
+}
+
+.stepProgressBar {
+    display: flex;
+    justify-content: space-between;
+
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    align-items: flex-end;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-text {
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.bullet {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 1px solid #0D0F25;
+    color: #0D0F25;
+    position: relative;
+    display: inline-block;
+    transition: background-color 1000ms;
+    line-height: 40px;
+}
+
+.bullet.completed {
+    color: white;
+    background-color:#0D0F25;
+}
+
+.bullet.completed::after {
+    content: '';
+    position: absolute;
+    width: 107px;
+    background-color:#0D0F25;
+    height: 1px;
+    right: -90px;
+    bottom: 19px;
+}
+
 
 
 /* ------------- Mobil -------------- */
