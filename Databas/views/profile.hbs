@@ -26,8 +26,9 @@
 
         <ul>
             {{#if user}}
+                <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}}</a></li>
                 <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
-                <li><a id="hrefnav" href="/auth/logout">Logga ut</a></li>
+                <li><a id="hrefnav" href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a></li>
             {{else}}
                 <li><a id="hrefnav" href="/login">Login</a></li>
                 <li><a id="hrefnav" href="/register">Register</a></li>
@@ -38,13 +39,18 @@
     <div class="navbar">
         <div class="hamburger">
             <div id="myLinks">
+                 <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}}</a>
                  <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
-                 <a href="/auth/logout">Logga ut</a>
+                 <a href="/auth/logout"> <i class="fa fa-sign-out"></i>  Logga ut</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
+    </div>
+    
+    <div class="getback_container">
+        
     </div>
 
     <div class="entire_screen">
@@ -61,7 +67,7 @@
                 <button class="button" type="submit">Bekräfta legitimering</button>
             </form>
             <form method="GET" action="">
-                <button class="button" type="submit"> <i class="fa fa-qrcode    "></i> Legitimera med QR-kod</button>
+                <button class="button" type="submit"> <i class="fa fa-qrcode"></i>Legitimera med QR-kod</button>
             </form>
             
         </div>

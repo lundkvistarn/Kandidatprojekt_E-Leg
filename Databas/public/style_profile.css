@@ -88,6 +88,10 @@ nav li a:hover {
     display: none;
 }
 
+.getback_container {
+    margin: 10px;
+}
+
 /* ----------  Meny, välkommen -------------- */
 
 .entire_screen {
@@ -434,7 +438,7 @@ hr.style-six {
     justify-content: space-between;
 
     width: 300px;
-    margin-top: 50px;
+    margin-top: 37px;
     margin-bottom: 80px;
     align-items: flex-end;
 }
