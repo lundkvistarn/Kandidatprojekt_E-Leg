@@ -39,13 +39,14 @@
             <li><a href="/">Home</a></li>
             <li><a href="/Profile">Profile</a></li>
             <li><a href="/legitimera">Verifera</a></li>
+            <li><a href="/legitimeringskort">Legitimeringskort</a></li>
             <li><a href="/qr_code">qr_code</a></li>
             <li><a href="/auth/forfragningar">Fofragningar</a></li>
             <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </nav>
 
-<form action="/auth/register" method="POST">
+<form >
   <div>
     <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
     <label for="subscribeNews">Subscribe to newsletter?</label>
@@ -54,8 +55,6 @@
     <button type="submit">Subscribe</button>
   </div>
 </form>
-
-
 
 
 
@@ -80,21 +79,24 @@
         /* JS comes here */
         var qr;
       (function () {
+          // TAr in var. 
+          //Create QR w. qr-text
             qr = new QRious({
                 element: document.getElementById('qr-code'),
-                size: 200,
+                size: 0,
                 value: "Rubber Duck"
             });
         })(); 
         var qr;
         function generateQRCode() {
+          
             var qrtext = document.getElementById("qr-text").value;
             document.getElementById("qr-result").innerHTML = "QR code for " + qrtext + ":";
-            alert(qrtext);
-            qr.set({
+           // alert(qrtext);
+            qr.set({ 
                 foreground: 'black',
                 size: 200,
-                value: 'www.google.com/' + qrtext
+                value: 'http://localhost:1337/' + qrtext
             });
         }
     </script>
