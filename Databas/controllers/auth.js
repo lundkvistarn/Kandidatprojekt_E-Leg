@@ -228,3 +228,57 @@ exports.changePassword = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.addInfo = async (req, res) => {
+  const decoded = await promisify(jwt.verify)(
+    req.cookies.jwt,
+    process.env.JWT_SECRET
+  ); //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
+  console.log(decoded);
+
+  //skapar variabler f�r varje ruta i register - AL
+  const { personID, address } = req.body;
+
+  //mysql query f�r att f� email fr�n databasen, g�r �ven att en email bara kan skrivas in en g�ng och kollar ifall l�senorden st�mmer �verns med varandra - AL
+  db.query(
+    "SELECT personid FROM users WHERE personid = ?",
+    [personID],
+    async (error, results) => {
+      if (error) {
+        console.log(error);
+      }
+
+      if (results.length > 0) {
+        return res.render("profile", {
+          message: "That person-ID is already in use",
+        });
+      } else if (!address) {
+        //om addressen �r "olagliga" eller rutorna �r tomma - AL
+        return res.status(400).render("profile", {
+          message: "Please enter a address",
+        });
+      } else if (!personID) {
+        //om personnummret �r "olagliga" eller rutorna �r tomma - AL
+        return res.status(400).render("profile", {
+          message: "Please enter a person-ID",
+        });
+      }
+
+      var sql = "UPDATE users SET ? WHERE ID = " + decoded.id + ";";
+
+      var data = { personid: personID, address: address };
+
+      //skickar in namn, email och encryptad l�senord till databasen - AL
+      db.query(sql, data, (error, results) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(results);
+          return res.render("profile", {
+            message: "Info added",
+          });
+        }
+      });
+    }
+  );
+};

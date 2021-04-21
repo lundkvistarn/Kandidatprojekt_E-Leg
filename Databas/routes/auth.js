@@ -12,4 +12,6 @@ router.get("/logout", authController.logout); //n�r n�gon klickar p� logut
 
 router.post("/changePassword", authController.changePassword); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
 
+router.post("/addInfo", authController.addInfo); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
+
 module.exports = router; //exportar router - AL
