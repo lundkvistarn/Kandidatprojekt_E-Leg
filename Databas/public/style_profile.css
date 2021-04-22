@@ -188,8 +188,6 @@ nav li a:hover {
     flex-direction: column;
 }
 
-
-
 #ver {
     height: 400px; 
     width: 600px;
@@ -283,6 +281,11 @@ nav li a:hover {
     border-bottom: 0px;
 }
 
+#ss_account {
+    width: 400px;
+    border-bottom: 0px;
+}
+
 /* unvisited link */
 a:link {
     color:rgb(148, 148, 148);
@@ -332,10 +335,26 @@ hr.style-six {
  
 #checkmark {
     margin: 20px;
+    border-radius: 50%;
 }
 
 #brodtext {
     color: rgb(231, 231, 231);
+}
+
+.accountBox{
+    width: 400px;
+    height: 150px;
+}
+
+.accountName {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.accountText {
+    font-size: 20px;
 }
 
 /* ------------- Information - Kontakt, säkerhet... -------------- */
@@ -479,6 +498,10 @@ hr.style-six {
     bottom: 19px;
 }
 
+#iSpace {
+    margin-right: 30px;
+  }
+
 
 
 /* ------------- Mobil -------------- */
@@ -587,6 +610,11 @@ hr.style-six {
         margin: -50px 0 0 -170px;
     }
 
+    .accountBox{
+        width: 295px;
+        height: 150px;
+    }
+
     .button {
         width: 308px;
     }
@@ -604,7 +632,11 @@ hr.style-six {
         width: 310px;
         border-bottom: 0px;
     }
-    
+
+    #ss_account {
+        width: 295px;
+        border-bottom: 0px;
+    }
 
     #loggaut_information_line {
         display: block;
@@ -644,7 +676,13 @@ hr.style-six {
         height: 30px;
         font-size: 16px;
     }
+
+    #iSpace {
+        margin-right: 5px;
+      }
 }
+
+
 
 @media only screen and (max-height: 703px){ 
 
