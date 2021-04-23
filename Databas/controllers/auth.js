@@ -266,7 +266,7 @@ exports.addInfo = async (req, res) => {
 
       var sql = "UPDATE users SET ? WHERE ID = " + decoded.id + ";";
 
-      var data = { personid: personID, address: address };
+      var data = { safetylevel: 2, personid: personID, address: address };
 
       //skickar in namn, email och encryptad l�senord till databasen - AL
       db.query(sql, data, (error, results) => {
