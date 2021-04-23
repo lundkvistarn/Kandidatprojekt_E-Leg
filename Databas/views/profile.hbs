@@ -66,11 +66,27 @@
             <form method="GET" action="/confirm_request">
                 <button class="button" type="submit">Bekräfta legitimering</button>
             </form>
-            <form method="GET" action="">
+            <form method="GET" action="/leg">
                 <button class="button" type="submit"> <i class="fa fa-qrcode"></i>Legitimera med QR-kod</button>
             </form>
             
         </div>
+
+        <!--
+
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">&times;
+                    <p> test overlay </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <button onclick="togglePopup()"> Show Popup </button>
+
+        -->
 
         <div class="information_container">
             <div class="line">
@@ -92,6 +108,7 @@
 
 
 <script>
+
     function myFunction() {
         var x = document.getElementById("myLinks");
         if (x.style.display === "block") {
@@ -100,4 +117,9 @@
             x.style.display = "block";
         }
     }
+
+    function togglePopup() {
+        document.getElementById("popup-1").classList.toggle("active");
+    }
+
 </script>
