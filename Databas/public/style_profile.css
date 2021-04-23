@@ -428,6 +428,11 @@ hr.style-six {
     font-family: 'Montserrat', sans-serif;
 }
 
+#b_green {
+    background-color: #439928;
+    border: 1px solid #439928;
+}
+
 .button:hover {
     opacity: 80%;
 }
