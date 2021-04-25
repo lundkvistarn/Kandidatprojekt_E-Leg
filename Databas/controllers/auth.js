@@ -200,7 +200,7 @@ exports.legitimera = async (req, res) => { //avsändare
 //listen for request?
 //db table för pending request? "select * from pending requests where receiver=$user". aktiveras när man går in på den delen av hemsidan ist för run{}?
 
-exports.forfragningar = async (req, res) => { //mottagare
+exports.forfragningar = async (req, res) => { //mottagare ser sina inkommande requests o kan svara ja/nej
     console.log("Visiting your requests page.");
     
     
@@ -216,7 +216,10 @@ exports.forfragningar = async (req, res) => { //mottagare
                         }
                         else {
                             console.log("You have pending reuests.");
-                            console.log(results);                            
+                            console.log(results);
+                            //this.decline(results[0]); 
+                            //this.accept(results[0]);     
+                            //this.removeOldRequests(results[0])                   
                         }
                     })
         
@@ -225,4 +228,55 @@ exports.forfragningar = async (req, res) => { //mottagare
                 }
             } 
             console.log("Done checking request table.");  
+}
+
+
+exports.remove = async (reqID) => { //tar bort en specifik request
+    console.log(reqID.requestID);
+    try {
+         db.query('DELETE FROM requests WHERE requestID = ?', reqID.requestID, (error, results) => {
+            if (error) 
+                    console.log(error);
+            
+            else
+                console.log("Request removed.");
+                                  
+          })
+        
+    } catch (error) {
+         console.log(error);
+    }
+}
+
+exports.decline = async (reqID) => { //anropar bara remove
+    console.log("You declined.");
+    this.remove(reqID);
+}
+
+exports.accept = async (reqID) => { //anropar bara remove
+    console.log("You accepted");
+    this.remove(reqID);
+}
+
+exports.removeOldRequests = async (reqID) => { //tar bort gamla requests sålänge mottagaren är inloggad.
+    console.log("Old requests deleted.");
+    currentTime = new Date();
+    console.log(currentTime.getFullYear()+"-"+("0"+(currentTime.getMonth()+1)).slice(-2)
+    +"-"+("0"+currentTime.getDate()).slice(-2)
+    +"T"+("0"+currentTime.getHours()).slice(-2)
+    +":"+("0"+currentTime.getMinutes()).slice(-2)
+    +":"+("0"+currentTime.getSeconds()).slice(-2));
+
+    try{
+    console.log(reqID.datum);
+    let dateTimeParts= reqID.datum.split(/[- : T Z]/);
+    dateTimeParts[1]--;
+    const dateObject = new Date(...dateTimeParts);
+    console.log(dateObject);
+    }
+    catch (error) {
+        console.log(error);
+   }
+    //if(currentTime - reqID.datum > 5) //om det gått längre än 5 minuter
+       // this.remove(reqID);
 }
