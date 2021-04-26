@@ -50,7 +50,7 @@
     </div>
     
     <div class="getback_container">
-        <a href="/profile"> <i class="fa fa-caret-square-o-left" style="font-size:36px"> </i> </a>
+        <a href="/profile"> <i class="fa fa-reply" style="font-size:36px"> </i> Tillbaka </a>
     </div>
 
     <div class="entire_screen">
@@ -84,7 +84,7 @@
 
             </div>
 
-            <form method="GET" action="/addInfo">
+            <form method="GET" action="/addInfo ">
                 <button class="button" id="b_upgrade" type="submit"> Uppgradera till säkerhetsnivå: &nbsp;&nbsp; <h4 id="nextLevel"></h4> </button>
             </form>  
         </div>
@@ -138,10 +138,17 @@
     if ( {{user.safetylevel}} == 2){
         const currentBullet = bullets[1];
         currentBullet.classList.add('completed');
+
+        const currentBulletFirst = bullets[0];
+        currentBulletFirst.classList.remove('completed');   
     }
     if ( {{user.safetylevel}} == 3){
         const currentBullet = bullets[2];
         currentBullet.classList.add('completed');
+
+        const currentBulletSecond = bullets[1];
+        currentBulletSecond.classList.remove('completed');  
+
         b_upgrade.disabled = true;
         document.getElementById('nextLevel').innerHTML = "högsta nivå uppfylld";
     }
