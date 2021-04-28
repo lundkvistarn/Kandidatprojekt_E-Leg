@@ -6,10 +6,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#meatballsCanvas {
-    width: 100%;
-}
-
 /* ----------  Navbar, Topbar, Header -------------- */
 
 nav {
@@ -146,7 +142,21 @@ nav li a:hover {
     height: 420px;
     width: 700px;
     left: 46%;
+ 
+    background: linear-gradient(270deg, #00ffd0, #0086ff);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    -o-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
 }
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 #bc_text {
     background-color:rgba(0, 0, 0, 0);
