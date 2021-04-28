@@ -39,7 +39,7 @@
     <div class="navbar">
         <div class="hamburger">
             <div id="myLinks">
-                 <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}}</a>
+                 <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}} </a>
                  <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
                  <a href="/auth/logout"> <i class="fa fa-sign-out"></i>  Logga ut</a>
             </div>
@@ -55,7 +55,7 @@
 
     <div class="entire_screen">
         <div class="welcome_container">
-            <h5 class="card-title"> Välkommen, {{user.name}}</h5>
+            <h5 class="card-title"> Välkommen, {{user.name}} </h5>
         </div>
 
         <div class="button_container">
@@ -63,8 +63,8 @@
             <form method="GET" action="/activeleg">
                 <button class="button" type="submit">Förfråga legitimering</button>
             </form>  
-            <form method="GET" action="/confirm_request">
-                <button class="button" type="submit">Bekräfta legitimering</button>
+            <form method="GET" action="/auth/confirm_request">
+                <button class="button" type="submit">Bekräfta inkommande förfrågning</button>
             </form>
             <form method="GET" action="/leg">
                 <button class="button" type="submit"> <i class="fa fa-qrcode"></i>Legitimera med QR-kod</button>

@@ -13,10 +13,10 @@
 </head>
 <body>
 
-    <div class="top_bar">
-        <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/></a>
-        <h4 id="textLogo_top_bar">Identify </h4>
-    </div>
+        <div class="top_bar">
+            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/></a>
+            <h4 id="textLogo_top_bar">Identify </h4>
+        </div>
 
     <nav>
         <div class="logowithtext_nav">
@@ -54,22 +54,45 @@
     </div>
 
     <div class="entire_screen">
-        <div class="welcome_container">
-            <h6 class="card-title"> <a href="/profile">Hem</a> -> <a href="/confirm_request" id="active_breadcrumb">Bekräfta legitimering</a></h6>
-        </div>
 
-        <div class="button_container">
-            
-            <form method="GET" action="/activeleg">
-                <button class="button" type="submit">Förfråga legitimering</button>
+        
+
+        <div class="welcome_container">
+            <h6 class="card-title"> <a href="/profile">Hem</a> -> <a href="/confirm_request" id="active_breadcrumb">Bekräfta inkommande förfrågning</a></h6>
+        </div>  
+
+        <div class="white_box">
+            <div id="ver" ss-container>
+                <div class="verifikation">
+                    <p>Identification inquiry <br>  From {{user.senderID}} </p>
+                    <div class="stroke"></div>
+                    <p>02:12</p>
+                </div>
+                <div class="verifikation">
+                    <p>Identification inquiry <br>  From Sam </p>
+                    <div class="stroke"></div>
+                    <p>15:00</p>
+                </div>
+                <div class="verifikation" id="verifikation_ok">
+                    <p>Identification inquiry <br>  From Willy </p>
+                    <div class="stroke"></div>
+                    <p>OK!</p>  
+                </div>
+                <div class="verifikation" id="verifikation_ok">
+                    <p>Identification inquiry <br>  From Calle </p>
+                    <div class="stroke"></div>
+                    <p>OK!</p>
+                </div>
+                <div class="verifikation" id="verifikation_ok">
+                    <p>Identification inquiry <br>  From Calle </p>
+                    <div class="stroke"></div>
+                    <p>OK!</p>
+                </div>
+            </div>
+
+            <form method="GET" action="/new_request">
+                <button class="button" type="submit">Ny förfrågan</button>
             </form>  
-            <form method="GET" action="/confirm_request">
-                <button class="button" type="submit">Bekräfta legitimering</button>
-            </form>
-            <form method="GET" action="">
-                <button class="button" type="submit">E-mail</button>
-            </form>
-            
         </div>
 
         <div class="information_container">
@@ -100,4 +123,9 @@
             x.style.display = "block";
         }
     }
+
+    
 </script>
+
+
+

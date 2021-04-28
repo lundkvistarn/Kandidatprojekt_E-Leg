@@ -2,6 +2,7 @@ var mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { promisify } = require('util');
+const { nextTick } = require('process');
 
 //connectar till databasen
 const db = mysql.createConnection({
@@ -9,7 +10,8 @@ const db = mysql.createConnection({
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE,
-    port: process.env.DATABASE_PORT
+    port: process.env.DATABASE_PORT,
+    lego: process.env.DATABASE_USER
 });
 
 
@@ -126,6 +128,26 @@ exports.isLoggedIn = async (req, res, next) => {
                 req.user = result[0];
                 return next();
             });
+
+            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
+                    console.log("Inga requests.");     
+                    return next();      
+                }
+                
+                console.log("You have pending reuests.");
+                //this.decline(results[0]); 
+                //this.accept(results[0]);     
+                //this.removeOldRequests(results[0])     
+                req.lego = result[0];
+
+                console.log(result[0].receiverID);
+                
+                return next(); 
+            });
+            
         } catch (error) {
             console.log(error);
             return next();
@@ -133,6 +155,42 @@ exports.isLoggedIn = async (req, res, next) => {
     } else { //om det inte finns en cookie g�r den vidare  - AL
         next();
     } 
+}
+
+exports.confirm_request = async (req, res) => { //mottagare ser sina inkommande requests o kan svara ja/nej
+    console.log("Visiting your requests page.");
+    
+            if (req.cookies.jwt) {
+                try {
+                    const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+                    db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, results) => {
+                        if (error) {
+                            console.log(error);
+                        } 
+                        if (results.length<1) { //om mailen inte finns eller l�senordet �r fel - AL
+                            console.log("Inga requests.");           
+                        }
+                        else {
+                            console.log("You have pending reuests.");
+                            console.log(results);
+                            //this.decline(results[0]); 
+                            //this.accept(results[0]);     
+                            //this.removeOldRequests(results[0])     
+                            req.lego = results[1];
+                            
+                            //res.render('confirm_request', {
+                               
+                            //});
+
+                            //return next(); 
+                        }
+                    })
+        
+                } catch (error) {
+                    console.log(error);
+                }
+            } 
+            console.log("Done checking request table.");  
 }
 
 //n�r anv�ndare klickar p� logout byts dens cookie till en cookie med value 'logout' som expirar efter 2 sekunder vilket leder till utloggning  - AL
@@ -304,6 +362,8 @@ exports.addInfo = async (req, res) => {
     }
   );
 };
+
+
 
 /*
 exports.updateAcc = async (req, res) => {

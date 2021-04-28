@@ -32,7 +32,13 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render('profile', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+                      // här måste jag implementera så att variabeln för request kan användas
         });
+
+        res.render('profile', {
+            user: req.lego
+        });
+
     } else {
         res.redirect('/login');
     }
@@ -80,6 +86,7 @@ router.get('/activeleg', authController.isLoggedIn, (req, res) => {
     }
     
 });
+
 
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
 router.get('/new_request', authController.isLoggedIn, (req, res) => {
@@ -185,6 +192,20 @@ router.get('/account', authController.isLoggedIn, (req, res) => {
     //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
     if (req.user) {
         res.render('account', {
+            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+        });
+    } else {
+        res.redirect('/login');
+    }
+    
+});
+
+//n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
+router.get('/leg', authController.isLoggedIn, (req, res) => {
+
+    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+    if (req.user) {
+        res.render('leg', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
         });
     } else {

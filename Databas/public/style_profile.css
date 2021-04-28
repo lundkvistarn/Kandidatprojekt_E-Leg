@@ -126,6 +126,24 @@ nav li a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.308), 0 6px 20px 0 rgba(0, 0, 0, 0.267);  
 }
 
+.left {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right {
+    margin: 30px;
+}
+
+#bc_leftandright {
+    flex-direction: row;
+    height: 420px;
+    width: 700px;
+    left: 46%;
+}
+
 #bc_text {
     background-color:rgba(0, 0, 0, 0);
     box-shadow: none;
@@ -266,6 +284,12 @@ nav li a:hover {
     margin-bottom: 10px;
 }
 
+.vl {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgb(0, 0, 0);
+  height: 330px;
+}
+
 .form-group {
     width: 500px;
     margin: 30px;
@@ -284,6 +308,10 @@ nav li a:hover {
 #ss_account {
     width: 400px;
     border-bottom: 0px;
+}
+
+#ss_leg {
+    width: 360px;
 }
 
 /* unvisited link */
@@ -650,6 +678,25 @@ hr.style-six {
         margin: -50px 0 0 -170px;
     }
 
+    #bc_leftandright {
+        width: 340px;
+        left: 50%;
+        top: 200px;
+        height: 80vh;
+        position: fixed;
+        flex-direction: column;
+        background-color: white;
+    }
+
+    .left {
+        margin: 0;
+        margin-bottom: 0;
+    }
+
+    .right {
+        margin-top: -200%;
+    }
+
     .welcome_container {
         /*position*/
         position: fixed;
@@ -687,6 +734,15 @@ hr.style-six {
         border-bottom: 0px;
     }
 
+    #ss_leg {
+        width: 270px;
+    }
+    
+    #qr-code {
+        height: 150px;
+    }
+
+
     #loggaut_information_line {
         display: block;
         color:rgb(148, 148, 148);
@@ -705,6 +761,8 @@ hr.style-six {
         width: 340px;
     }
 
+
+
     /* ------------- Information - Kontakt, säkerhet... -------------- */
 
     .information_line{
@@ -715,6 +773,10 @@ hr.style-six {
         left: 50%;
         margin: -85px 0 0 -170px;
         width: 340px;
+    }
+
+    #ic_leg {
+        display: none;
     }
 
     .form-group {
@@ -729,6 +791,34 @@ hr.style-six {
     #iSpace {
         margin-right: 5px;
       }
+
+    #iSpace_leg {
+        font-size: 10px;
+        margin: 0px;
+    }
+
+    #accountText_leg {
+        font-size: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #accountName_leg {
+        padding: 0;
+        margin-bottom: 12px;
+    }
+
+    .vl {
+        display: none;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+
+    #card-title_leg {
+        display: none;
+    }
 }
 
 
