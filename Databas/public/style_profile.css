@@ -6,6 +6,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+#meatballsCanvas {
+    width: 100%;
+}
+
 /* ----------  Navbar, Topbar, Header -------------- */
 
 nav {
