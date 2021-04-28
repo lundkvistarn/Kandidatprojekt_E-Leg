@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_profile.css">
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Identify</title>
+</head>
+<body>
+
+        <div class="top_bar">
+            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/></a>
+            <h4 id="textLogo_top_bar">Identify </h4>
+        </div> 
+
+    <nav>
+        <div class="logowithtext_nav">
+            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_nav"/></a>
+            <h4 id="textLogo"> Identify </h4>
+        </div> 
+
+        <ul>
+            {{#if user}}
+                <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}}</a></li>
+                <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
+                <li><a id="hrefnav" href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a></li>
+            {{else}}
+                <li><a id="hrefnav" href="/login">Login</a></li>
+                <li><a id="hrefnav" href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    <div class="navbar">
+        <div class="hamburger">
+            <div id="myLinks">
+                 <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}}</a>
+                 <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
+                 <a href="/auth/logout"> <i class="fa fa-sign-out"></i>  Logga ut</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="getback_container">
+        <a href="/profile"> <i class="fa fa-caret-square-o-left" style="font-size:36px"> </i> </a>
+    </div>
+    <div class="entire_screen">
+
+        <div class="welcome_container">
+            <h6 class="card-title"> <a href="/profile">Hem</a> -> <a href="/settings"> Inställningar </a> -> <a href="/account"> Konto </a> -> <a href="/updateAcc" id="active_breadcrumb"> Uppdatera uppgifter</a></h6>
+        </div>
+
+        <div class="button_container">
+
+    <!--        <div>
+                <img src="../fifflaren.jpg" id="checkmark" alt="checkmark">
+            </div>
+    -->        
+                <form action="/auth/updateAcc" method="POST">
+
+                    <div class="form-group">
+                        <i id="iSpace" class="fa fa-user fa-lg"></i>
+                        <input type="text" class="form-control" id="name" name="name" placeholder={{user.name}} />
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <i id="iSpace" class="fa fa-envelope fa-lg"></i>
+                        <input type="email" class="form-control" id="email" name="email" placeholder={{user.email}}>    
+                    </div>
+
+                     
+                     <div class="form-group">
+                         <i id="iSpace" class="fa fa-id-card fa-lg"></i>
+                        <input type="personid" class="form-control" id="personID" name="personID" placeholder={{user.personid}} />
+                    </div>
+            
+                     
+                     <div class="form-group">
+                         <i id="iSpace" class="fa fa-map-marker fa-lg"> </i>
+                        <input type="adress" class="form-control" id="adress" name="adress" placeholder={{user.address}} />
+                    </div>
+
+                    <button type="submit" class="button" id="b_green">Uppdatera</button>
+                </form>
+            
+            
+
+        </div>
+
+        <div class="information_container">
+            <div class="line">
+                <hr class="style-six"> </hr>
+            </div>
+
+            <div class="information_line">
+                <a href="/about_us">Om oss</a>
+                <a href="/security">Säkerhet</a>
+                <a href="/contact">Kontakt</a>
+                <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
