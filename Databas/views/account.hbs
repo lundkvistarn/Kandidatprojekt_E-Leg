@@ -56,9 +56,7 @@
     <div class="entire_screen">
 
         <div class="welcome_container">
-            <h6 class="card-title"> <a href="/profile">Hem</a> -> 
-            <a href="/settings"> Inställningar </a> -> 
-            <a href="/account" id="active_breadcrumb"> Konto </a></h6>
+            <h6 class="card-title"> <a href="/profile">Hem</a> -> <a href="/settings"> Inställningar </a> -> <a href="/account" id="active_breadcrumb"> Konto </a></h6>
         </div>
 
         <div class="button_container">
@@ -75,12 +73,11 @@
                 </div>
                 <p class="accountText"> <i id="iSpace" class="fa fa-envelope fa-fw"> </i> {{user.email}} </p>
 
-                <p class="accountText"> <i id="iSpace" class="fa fa-map-marker fa-fw"> </i> {{user.address}} </p>
+                <p class="accountText"> <i id="iSpace" class="fa fa-map-marker"> </i> {{user.address}} </p>
 
                 <p class="accountText"> <i id="iSpace" class="fa fa-id-card fa-fw"> </i> {{user.personid}} </p>
             </div>
             
-            <button class="button" onclick="document.location='updateAcc'">Uppdatera uppgifter</button>
 
         </div>
 

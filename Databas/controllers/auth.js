@@ -305,43 +305,4 @@ exports.addInfo = async (req, res) => {
   );
 };
 
-/*
-exports.updateAcc = async (req, res) => {
-    const decoded = await promisify(jwt.verify)(
-        req.cookies.jwt,
-        process.env.JWT_SECRET
-      ); //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
-      console.log(decoded);
-    
-      //skapar variabler f�r varje ruta i register - AL
-      const { name, email, personID, address } = req.body;
 
-
-      db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
-        if (error) {
-            console.log(error);
-        }
-
-        if (results.length > 0) {
-            return res.render('register', {
-                message: 'That email is already in use'
-            })
-        }
-      }
-
-      var insertQuery = "UPDATE `users` SET `name` = '" + name + "' WHERE ID = " + decoded.id + ";"
-            //skickar in namn, email och encryptad l�senord till databasen - AL
-            db.query(insertQuery,  (error, results) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log(results);
-                    return res.render('profile', {
-                        message: 'name changed'
-                    });
-                }
-            })
-
-
-};
-*/
