@@ -12,6 +12,19 @@ function readableDate(isostring) {
     return result
 }
 
+// Här skrivs funktionen -----------------<<
+
+//function getName(isostring) {
+        
+    //const sendersID = isostring
+
+    //db.query("SELECT senderID FROM users WHERE id=?", senderIDvariabeln...
+
+    //const result = date.getDate() + '/' + (date.getMonth() + 1) + ' - ' + date.getHours() + ':' + date.getMinutes()
+    //return result
+//}
+
+
 //connectar till databasen
 const db = mysql.createConnection({
     host: process.env.DATABAS_HOST,
@@ -21,6 +34,57 @@ const db = mysql.createConnection({
     port: process.env.DATABASE_PORT,
 });
 
+exports.isLoggedIn = async (req, res, next) => {
+    //console.log(req.cookies);
+
+    //om det finns en cookie med namnet jwt - AL
+    if (req.cookies.jwt) {
+        try {
+            //verify token
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
+            console.log(decoded);
+
+            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
+                    console.log("Inga requests.");     
+                    //  return next();      
+                }
+                //this.decline(results[0]); 
+                //this.accept(results[0]);     
+                //this.removeOldRequests(results[0])  
+
+                req.lego = result.map((request)=>{ 
+                    //request.senderName = getName(request.senderID) // <----------------- Här ska en funktion finnas = nameOfID(request.senderID)
+                    request.senderName = fo
+                    request.datum = readableDate(request.datum)
+                    return request
+                });
+            });
+
+            //check if the user still exists - AL
+            db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                //om det inte finns n�got resultat - AL
+                if (!result) {
+                    return next();
+                }
+
+                //skapar ny variabel user med all info om den inloggade usern - AL
+                req.user = result[0];
+                return next();
+            });
+
+        } catch (error) {
+            console.log(error);
+            return next();
+        }
+    } else { //om det inte finns en cookie g�r den vidare  - AL
+        next();
+    } 
+}
 
 exports.login = async (req, res) => {
     try {
@@ -112,56 +176,7 @@ exports.register = (req, res) => {
     });
 }
 
-exports.isLoggedIn = async (req, res, next) => {
-    //console.log(req.cookies);
 
-    //om det finns en cookie med namnet jwt - AL
-    if (req.cookies.jwt) {
-        try {
-            //verify token
-            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
-            console.log(decoded);
-
-            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
-                console.log(result);
-
-                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
-                    console.log("Inga requests.");     
-                    //  return next();      
-                }
-                //this.decline(results[0]); 
-                //this.accept(results[0]);     
-                //this.removeOldRequests(results[0])  
-
-                req.lego = result.map((request)=>{ 
-                    request.senderName = 'fo' // <----------------- Här ska en funktion finnas = nameOfID(request.senderID)
-                    request.datum = readableDate(request.datum)
-                    return request
-                });
-            });
-
-            //check if the user still exists - AL
-            db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
-                console.log(result);
-
-                //om det inte finns n�got resultat - AL
-                if (!result) {
-                    return next();
-                }
-
-                //skapar ny variabel user med all info om den inloggade usern - AL
-                req.user = result[0];
-                return next();
-            });
-
-        } catch (error) {
-            console.log(error);
-            return next();
-        }
-    } else { //om det inte finns en cookie g�r den vidare  - AL
-        next();
-    } 
-}
 
 exports.confirm_request = async (req, res) => { //mottagare ser sina inkommande requests o kan svara ja/nej
     console.log("Visiting your requests page.");
