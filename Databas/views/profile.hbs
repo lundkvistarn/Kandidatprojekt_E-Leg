@@ -26,7 +26,7 @@
 
         <ul>
             {{#if user}}
-                <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}}</a></li>
+                <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}} </a></li>
                 <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
                 <li><a id="hrefnav" href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a></li>
             {{else}}
@@ -55,7 +55,7 @@
 
     <div class="entire_screen">
         <div class="welcome_container">
-            <h5 class="card-title"> Välkommen, {{user.name}} </h5>
+            <h5 class="card-title"> Välkommen, {{user.name}} {{lego.datum}} </h5>
         </div>
 
         <div class="button_container">

@@ -115,6 +115,25 @@ exports.isLoggedIn = async (req, res, next) => {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
             console.log(decoded);
 
+            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
+                    console.log("Inga requests.");     
+                    //  return next();      
+                }
+                
+                console.log("You have pending reuests.");
+                //this.decline(results[0]); 
+                //this.accept(results[0]);     
+                //this.removeOldRequests(results[0])     
+                req.lego = result[0];
+
+                //console.log(result[0].receiverID);
+                
+                //return next(); 
+            });
+
             //check if the user still exists - AL
             db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
                 console.log(result);
@@ -129,24 +148,7 @@ exports.isLoggedIn = async (req, res, next) => {
                 return next();
             });
 
-            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
-                console.log(result);
-
-                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
-                    console.log("Inga requests.");     
-                    return next();      
-                }
-                
-                console.log("You have pending reuests.");
-                //this.decline(results[0]); 
-                //this.accept(results[0]);     
-                //this.removeOldRequests(results[0])     
-                req.lego = result[0];
-
-                console.log(result[0].receiverID);
-                
-                return next(); 
-            });
+            
             
         } catch (error) {
             console.log(error);
@@ -258,7 +260,7 @@ exports.changePassword = async (req, res) => {
     }
 }
 
-
+ 
 
 exports.new_request = async (req, res) => { //avsändare
 

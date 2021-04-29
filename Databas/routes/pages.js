@@ -32,12 +32,10 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render('profile', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
-                      // här måste jag implementera så att variabeln för request kan användas
+            ,lego: req.lego  //skickar med variabel för pending requests - ES
         });
 
-        res.render('profile', {
-            user: req.lego
-        });
+        
 
     } else {
         res.redirect('/login');
@@ -165,10 +163,11 @@ router.get('/confirm_request', authController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render('confirm_request', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+            
         });
     } else {
         res.redirect('/login');
-    }
+    } 
     
 });
 
