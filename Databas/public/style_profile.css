@@ -380,6 +380,11 @@ hr.style-six {
     border-radius: 50%;
 }
 
+#checkmark_leg {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
 #brodtext {
     color: rgb(231, 231, 231);
 }
@@ -535,6 +540,8 @@ hr.style-six {
     background-color:#0D0F25;
 }
 
+/* ------------- Popup -------------- 
+
 .bullet.completed::after {
     content: '';
     position: absolute;
@@ -544,6 +551,8 @@ hr.style-six {
     right: -90px;
     bottom: 19px;
 }
+
+--*/
 
 /* ------------- Popup -------------- */
 
@@ -833,6 +842,10 @@ hr.style-six {
     #card-title_leg {
         display: none;
     }
+
+    #checkmark_leg {
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -845,6 +858,10 @@ hr.style-six {
 
     .line{
         display: none;
+    }
+
+    #line_leg {
+        display: block;
     }
   
 }
