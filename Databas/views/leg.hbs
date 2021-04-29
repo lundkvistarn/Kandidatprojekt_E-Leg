@@ -8,7 +8,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/style_profile.css">
     <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../img/logo_identi.svg"/>
+    <link rel="icon" type="image/png" href="../img/logo_identi.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
@@ -18,24 +18,25 @@
 <body>
 
     <div class="top_bar">
-        <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_top_bar"/></a>
+        <a href="/profile"><img src="../logo_identi.svg" alt="this is our logo" id="logo_top_bar" /></a>
         <h4 id="textLogo_top_bar">Identify </h4>
     </div>
 
     <nav>
         <div class="logowithtext_nav">
-            <a href="/profile"><img src="../logo_identi.svg" alt ="this is our logo" id="logo_nav"/></a>
+            <a href="/profile"><img src="../logo_identi.svg" alt="this is our logo" id="logo_nav" /></a>
             <h4 id="textLogo"> Identify </h4>
-        </div> 
+        </div>
 
         <ul>
             {{#if user}}
-                <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}}</a></li>
-                <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
-                <li><a id="hrefnav" href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a></li>
+            <li><a id="hrefnav" href="/safetylevel"> <i class="fa fa-badge"></i> Säkerhetsnivå: {{user.safetylevel}}</a>
+            </li>
+            <li><a id="hrefnav" href="/settings"> <i class="fa fa-cog"></i> Inställningar</a></li>
+            <li><a id="hrefnav" href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a></li>
             {{else}}
-                <li><a id="hrefnav" href="/login">Login</a></li>
-                <li><a id="hrefnav" href="/register">Register</a></li>
+            <li><a id="hrefnav" href="/login">Login</a></li>
+            <li><a id="hrefnav" href="/register">Register</a></li>
             {{/if}}
         </ul>
     </nav>
@@ -43,47 +44,52 @@
     <div class="navbar">
         <div class="hamburger">
             <div id="myLinks">
-                 <a href="/profile"> <i class="fa fa-reply"></i> Tillbaka </a>
-                 <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}} </a>
-                 <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
-                 <a href="/auth/logout"> <i class="fa fa-sign-out"></i>  Logga ut</a>
+                <a href="/profile"> <i class="fa fa-reply"></i> Tillbaka </a>
+                <a href="/safetylevel"> <i class="fa fa-"></i> Säkerhetsnivå: {{user.safetylevel}} </a>
+                <a href="/settings"> <i class="fa fa-cog"></i> Inställningar</a>
+                <a href="/auth/logout"> <i class="fa fa-sign-out"></i> Logga ut</a>
             </div>
             <a href="/profile" class="icon" onclick="">
                 <i class="fa fa-reply"></i>
             </a>
         </div>
     </div>
-    
+
     <div class="getback_container">
     </div>
 
     <div class="entire_screen">
 
         <div class="welcome_container">
-            <h6 class="card-title" id="card-title_leg"> <a href="/profile">Hem</a> -> <a href="/leg" id="active_breadcrumb"> Legitimeringskort</a></h6>
+            <h6 class="card-title" id="card-title_leg"> <a href="/profile">Hem</a> -> <a href="/leg"
+                    id="active_breadcrumb"> Legitimeringskort</a></h6>
         </div>
-        
+
         <div class="button_container" id="bc_leftandright">
-            
+
             <div class="left">
 
                 <div>
                     <img src="../fifflaren.jpg" id="checkmark_leg" alt="checkmark">
                 </div>
-                
-                <h3 class="accountName" id="accountName_leg"> {{user.name}} </h3> 
+
+                <h3 class="accountName" id="accountName_leg"> {{user.name}} </h3>
 
                 <div class="row">
 
                     <div class="accountBox" id="accountBox_leg">
 
                         <div class="line" id="line_leg">
-                            <hr id="ss_leg"></hr>   
+                            <hr id="ss_leg">
+                            </hr>
                         </div>
 
-                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-envelope fa-fw"> </i> {{user.email}} </p>
-                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-map-marker fa-fw"> </i> {{user.address}} </p>
-                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-id-card fa-fw"> </i> {{user.personid}} </p>
+                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-envelope fa-fw"> </i> {{user.email}}
+                        </p>
+                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-map-marker fa-fw"> </i>
+                            {{user.address}} </p>
+                        <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-id-card fa-fw"> </i>
+                            {{user.personid}} </p>
 
                     </div>
 
@@ -93,18 +99,20 @@
             <div class="vl"></div>
 
             <div class="line" id="line_legs">
-                    <hr id="ss_leg"></hr>   
+                <hr id="ss_leg">
+                </hr>
             </div>
 
             <div class="right">
                 <canvas id="qr-code"> </canvas>
-            </div>     
+            </div>
 
         </div>
-        
+
         <div class="information_container" id="ic_leg">
             <div class="line">
-                <hr class="style-six"> </hr>
+                <hr class="style-six">
+                </hr>
             </div>
 
             <div class="information_line">
@@ -115,10 +123,9 @@
             </div>
         </div>
 
-</div>
+    </div>
 
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js">
     </script>
 
     <script>
@@ -152,5 +159,54 @@
     function togglePopup() {
         document.getElementById("popup-1").classList.toggle("active");
     }
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+</script>
+
+<script>
+
+    function lightSweep(id, time) {
+        var ID = id;
+        var newID = $(ID).attr('id') + '_temp';
+        var height = $(ID).css('height');
+        var width = $(ID).css('width');
+        var background = $(ID).css('background');
+        var position = $(ID).position();
+        var top = position.top + "px";
+        var left = position.left + "px";
+
+        $(ID).clone().insertAfter(ID).attr('id', newID).addClass('lightSweep lightSweepStart');
+        $('#' + newID).css('height', height);
+        $('#' + newID).css('width', width);
+        $('#' + newID).css('top', top);
+        $('#' + newID).css('left', left);
+        $('#' + newID).css('background', background);
+        $('#' + newID).css("-webkit-transition-duration", time);
+        $('#' + newID).css("-moz-transition-duration", time);
+        $('#' + newID).css("-o-transition-duration", time);
+        $('#' + newID).css("transition-duration", time);
+        setTimeout(function () { $('#' + newID).addClass('lightSweepEnd'); }, 20);
+        $('#' + newID).on("webkitTransitionEnd otransitionend oTransitionEnd transitionend", function () { $('#' + newID).remove(); });
+
+    }
+
+</script>
+
+<link href="/lightSweep.css" rel="stylesheet">
+
+
+<script>
+
+    $(window).click('load', function () {
+
+        lightSweep('#checkmark_leg', '3s');
+
+    });
 
 </script>
