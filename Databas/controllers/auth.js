@@ -129,25 +129,15 @@ exports.isLoggedIn = async (req, res, next) => {
                     console.log("Inga requests.");     
                     //  return next();      
                 }
-                
-                console.log("You have pending reuests.");
                 //this.decline(results[0]); 
                 //this.accept(results[0]);     
                 //this.removeOldRequests(results[0])  
 
                 req.lego = result.map((request)=>{ 
-                    request.senderName = 'fo' 
+                    request.senderName = 'fo' // <----------------- Här ska en funktion finnas = nameOfID(request.senderID)
                     request.datum = readableDate(request.datum)
                     return request
                 });
-
-
-                
-
-
-                //console.log(result[0].receiverID);
-                
-                //return next(); 
             });
 
             //check if the user still exists - AL
@@ -164,8 +154,6 @@ exports.isLoggedIn = async (req, res, next) => {
                 return next();
             });
 
-            
-            
         } catch (error) {
             console.log(error);
             return next();

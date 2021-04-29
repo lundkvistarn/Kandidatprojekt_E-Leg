@@ -299,9 +299,13 @@ nav li a:hover {
 }
 
 .vl {
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgb(0, 0, 0);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
   height: 330px;
+}
+
+#line_legs {
+    display: none;
 }
 
 .form-group {
@@ -392,6 +396,10 @@ hr.style-six {
 .accountBox{
     width: 400px;
     height: 150px;
+}
+
+.accountBox_leg {
+    
 }
 
 .accountName {
@@ -845,6 +853,10 @@ hr.style-six {
 
     #checkmark_leg {
         margin-bottom: 10px;
+    }
+
+    #line_legs {
+        display:contents;
     }
 }
 

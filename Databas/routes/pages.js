@@ -165,7 +165,7 @@ router.get('/confirm_request', authController.isLoggedIn, (req, res) => {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
             ,lego: req.lego  //skickar med variabel för pending requests - ES
         });
-    } else {
+    } else {s
         res.redirect('/login');
     } 
     
