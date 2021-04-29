@@ -28,22 +28,24 @@
 <body>
 
     <nav>
-        <h4> Forfragningar </h4>
+        <h4> Legitimering </h4>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/Profile">Profile</a></li>
             <li><a href="/legitimera">Verifera</a></li>
+            <li><a href="/forfragningar" >Forfragningar</a></li>
             <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </nav>
 
     <div class="container mt-4">
-        <h4> Hej </h4>
-        <p> Svejs</p>
-        <div>
-
-            
-        </div>
+        <h4> Dina förfrågningar: </h4>
+        <button onclick="/auth/forfragningar" >Refresh</button>
+        <li><a  href="/auth/forfragningar">Forfragningar</a></li>
+        </a>
+        
+      <p>  {{RowDataPacket.senderID}} </p>
+                
 
     </div>
 

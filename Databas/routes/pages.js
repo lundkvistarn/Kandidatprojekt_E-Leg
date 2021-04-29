@@ -51,4 +51,16 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     
 });
 
+router.get('/forfragningar', authController.isLoggedIn, (req, res) => {
+        
+    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+    if (req.user) {
+        res.render('forfragningar', {
+            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
 module.exports = router; //exportar router - AL

@@ -201,8 +201,8 @@ exports.legitimera = async (req, res) => { //avsändare
 //db table för pending request? "select * from pending requests where receiver=$user". aktiveras när man går in på den delen av hemsidan ist för run{}?
 
 exports.forfragningar = async (req, res) => { //mottagare ser sina inkommande requests o kan svara ja/nej
+   
     console.log("Visiting your requests page.");
-    
     
             if (req.cookies.jwt) {
                 try {

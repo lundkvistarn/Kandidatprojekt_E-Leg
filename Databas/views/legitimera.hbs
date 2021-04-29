@@ -33,7 +33,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/Profile">Profile</a></li>
             <li><a href="/legitimera">Verifera</a></li>
-            <li><a href="/auth/forfragningar">Forfragningar</a></li>
+            <li><a  href="/forfragningar">Forfragningar</a></li>
             <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </nav>
@@ -43,20 +43,26 @@
         <p> Fyll i email nedanför</p>
         <div>
 
-            <form action="/auth/legitimera" method="POST"> <!--- LS -->
+            <form action="/auth/legitimera"  method="POST"> <!--- LS -->
 
-            <form action="/auth/legitimera" method="POST">
+         <!--   <form action="/auth/legitimera" method="POST">-->
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" />
                 </div>
-                <button type="submit" class="btn btn-primary">Skicka förfrågan</button>
+                <button type="submit" onclick="myFunction()" class="btn btn-primary">Skicka förfrågan</button>
             </form>
         </div>
 
     </div>
 
 </body>
+
+<script>
+function myFunction() {
+  alert("Förfrågan skickad");
+}
+</script>
 
 </html>
