@@ -163,7 +163,7 @@ router.get('/confirm_request', authController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render('confirm_request', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
-            
+            ,lego: req.lego  //skickar med variabel för pending requests - ES
         });
     } else {
         res.redirect('/login');

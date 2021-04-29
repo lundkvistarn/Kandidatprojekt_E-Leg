@@ -62,32 +62,22 @@
         </div>  
 
         <div class="white_box">
+
             <div id="ver" ss-container>
-                <div class="verifikation">
-                    <p>Identification inquiry <br>  From {{user.senderID}} </p>
-                    <div class="stroke"></div>
-                    <p>02:12</p>
-                </div>
-                <div class="verifikation">
-                    <p>Identification inquiry <br>  From Sam </p>
-                    <div class="stroke"></div>
-                    <p>15:00</p>
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Willy </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>  
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Calle </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Calle </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>
-                </div>
+
+                {{#each lego}}
+
+                    <!-- <div class="row"> {{this.senderID}} </div> -->
+
+                    <div class="verifikation">
+                        <p>Identification inquiry <br>  senderID =  {{this.senderID}} Namn = {{this.senderName}} </p>
+                        <div class="stroke"> </div>
+                        <p> {{this.datum}} </p> <!-- new Date(this.datum) -->
+                    </div>
+
+                {{/each}}
+
+
             </div>
 
             <form method="GET" action="/new_request">
@@ -115,6 +105,7 @@
 
 
 <script>
+
     function myFunction() {
         var x = document.getElementById("myLinks");
         if (x.style.display === "block") {
@@ -123,6 +114,9 @@
             x.style.display = "block";
         }
     }
+
+
+
 
     
 </script>

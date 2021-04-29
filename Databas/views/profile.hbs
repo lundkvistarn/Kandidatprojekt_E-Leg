@@ -55,7 +55,11 @@
 
     <div class="entire_screen">
         <div class="welcome_container">
-            <h5 class="card-title"> Välkommen, {{user.name}} {{lego.datum}} </h5>
+            <h5 class="card-title"> Välkommen, {{user.name}} </h5>
+            <p id="demo"> </p>
+
+            
+            
         </div>
 
         <div class="button_container">
@@ -63,7 +67,7 @@
             <form method="GET" action="/activeleg">
                 <button class="button" type="submit">Förfråga legitimering</button>
             </form>  
-            <form method="GET" action="/auth/confirm_request">
+            <form method="GET" action="/confirm_request">
                 <button class="button" type="submit">Bekräfta inkommande förfrågning</button>
             </form>
             <form method="GET" action="/leg">
@@ -100,12 +104,24 @@
                 <a id="loggaut_information_line" href="/auth/logout">Logga ut</a>
             </div>
         </div>
-    </div>
+    </div>  
+
+
+    <script>
+
+        var txt = 1;
+        console.log(item_name);
+
+        
+
+        document.getElementById("demo").innerHTML = item_name;
+    
+    </script>
 
 </body>
 </html>
 
-
+ 
 
 <script>
 

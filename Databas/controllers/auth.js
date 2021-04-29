@@ -4,6 +4,14 @@ const bcrypt = require('bcryptjs');
 const { promisify } = require('util');
 const { nextTick } = require('process');
 
+
+function readableDate(isostring) {
+        
+    const date = new Date(isostring) 
+    const result = date.getDate() + '/' + (date.getMonth() + 1) + ' - ' + date.getHours() + ':' + date.getMinutes()
+    return result
+}
+
 //connectar till databasen
 const db = mysql.createConnection({
     host: process.env.DATABAS_HOST,
@@ -11,7 +19,6 @@ const db = mysql.createConnection({
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE,
     port: process.env.DATABASE_PORT,
-    lego: process.env.DATABASE_USER
 });
 
 
@@ -126,8 +133,17 @@ exports.isLoggedIn = async (req, res, next) => {
                 console.log("You have pending reuests.");
                 //this.decline(results[0]); 
                 //this.accept(results[0]);     
-                //this.removeOldRequests(results[0])     
-                req.lego = result[0];
+                //this.removeOldRequests(results[0])  
+
+                req.lego = result.map((request)=>{ 
+                    request.senderName = 'fo' 
+                    request.datum = readableDate(request.datum)
+                    return request
+                });
+
+
+                
+
 
                 //console.log(result[0].receiverID);
                 
