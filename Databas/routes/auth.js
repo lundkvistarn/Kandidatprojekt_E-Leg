@@ -14,4 +14,6 @@ router.post("/changePassword", authController.changePassword); //n�r n�gon k
 
 router.post("/addInfo", authController.addInfo); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
 
+router.post("/addImage", authController.addImage); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
+
 module.exports = router; //exportar router - AL

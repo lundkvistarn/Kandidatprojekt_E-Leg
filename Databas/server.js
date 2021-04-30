@@ -7,6 +7,7 @@ const { request } = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 
 dotenv.config({ path: "./.env" });
 
@@ -30,6 +31,8 @@ app.use(express.json());
 //initialize cookieparser s� vi kan anv�nda cookies i browsern - AL
 app.use(cookieParser());
 
+app.use(fileUpload());
+
 app.set("view engine", "hbs");
 
 db.connect(function (err) {
@@ -37,17 +40,6 @@ db.connect(function (err) {
     return console.error("error: " + err.message);
   }
   console.log("Connected to the MySQL server.");
-
-  //connection.query("CREATE DATABASE mydb", function (err, result) {
-  //    if (err) throw err;
-  //    console.log("Database created");
-  //});
-
-  //var sql = "CREATE TABLE users (id int primary key auto_increment, email VARCHAR(255), name VARCHAR(255), password VARCHAR(255))";
-  //db.query(sql, function (err, result) {
-  //    if (err) throw err;
-  //    console.log("Table created");
-  //});
 });
 
 //Define routes
