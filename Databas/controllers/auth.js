@@ -371,7 +371,7 @@ exports.addInfo = async (req, res) => {
 
 
 
-/*
+
 exports.updateAcc = async (req, res) => {
     const decoded = await promisify(jwt.verify)(
         req.cookies.jwt,
@@ -380,34 +380,83 @@ exports.updateAcc = async (req, res) => {
       console.log(decoded);
     
       //skapar variabler f�r varje ruta i register - AL
-      const { name, email, personID, address } = req.body;
+      const { newname, newemail, newpersonID, newaddress } = req.body;
 
 
-      db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
+      db.query('SELECT email FROM users WHERE id = ?', [decoded.id], async (error, results) => {
         if (error) {
             console.log(error);
         }
 
-        if (results.length > 0) {
-            return res.render('register', {
-                message: 'That email is already in use'
-            })
-        }
-      }
+            if(newemail){
+                var insertEmail = "UPDATE `users` SET `email` = '" + newemail + "' WHERE ID = " + decoded.id + ";"
+                //skickar in namn, email och encryptad l�senord till databasen - AL
+                db.query(insertEmail,  (error, results) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(results);
+                        return res.render('settings', {
+                            message: 'email changed'
+                        });
+                    }
+                })
+            }
+            /* 
+                                            !!!!!!!!
+                                            !!!!!!!!
+            !!!!!!!! ---- Avändarna får inte byta namn, adress eller ID bara sådär, men det går att göra om man verkligen verkligen vill nedan :) - CM 
+                                            !!!!!!!!
+                                            !!!!!!!!
+            if(newname){
+                var insertName = "UPDATE `users` SET `name` = '" + newname + "' WHERE ID = " + decoded.id + ";"
+                //skickar in namn, email och encryptad l�senord till databasen - AL
+                db.query(insertName,  (error, results) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(results);
+                        return res.render('settings', {
+                            message: 'name changed'
+                        });
+                    }
+                })
+            }
 
-      var insertQuery = "UPDATE `users` SET `name` = '" + name + "' WHERE ID = " + decoded.id + ";"
-            //skickar in namn, email och encryptad l�senord till databasen - AL
-            db.query(insertQuery,  (error, results) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log(results);
-                    return res.render('profile', {
-                        message: 'name changed'
-                    });
-                }
-            })
+            if(newpersonID){
+                var insertPersonID = "UPDATE `users` SET `personid` = '" + newpersonID + "' WHERE ID = " + decoded.id + ";"
+                //skickar in namn, email och encryptad l�senord till databasen - AL
+                db.query(insertPersonID,  (error, results) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log(results);
+                            return res.render('settings', {
+                                message: 'ID changed'
+                            });
+                        }
+                })
+            }
+            
+            Det går dock inte att byta adress...Vet inte varför och behöver inte veta varför - CM
+
+            if(newAddress){
+                var insertnewAddress = "UPDATE `users` SET `address` = '" + newAddress + "' WHERE ID = " + decoded.id + ";"
+                //skickar in namn, email och encryptad l�senord till databasen - AL
+                db.query(insertnewAddress,  (error, results) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log(results);
+                            return res.render('settings', {
+                                message: 'address changed'
+                            });
+                        }
+                })
+            } */
+      });
+
+
 
 
 };
-*/
