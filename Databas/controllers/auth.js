@@ -12,6 +12,7 @@ function readableDate(isostring) {
     return result
 }
 
+
 //connectar till databasen
 const db = mysql.createConnection({
     host: process.env.DATABAS_HOST,
@@ -134,6 +135,7 @@ exports.isLoggedIn = async (req, res, next) => {
                 //this.removeOldRequests(results[0])  
 
                 req.lego = result.map((request)=>{ 
+                    //request.senderName = IDtoname(request.senderID);
                     request.senderName = 'fo' // <----------------- Här ska en funktion finnas = nameOfID(request.senderID)
                     request.datum = readableDate(request.datum)
                     return request
