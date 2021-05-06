@@ -7,9 +7,10 @@ const { request } = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const fileUpload = require("express-fileupload");
 
 
-dotenv.config({ path: './.env' });
+dotenv.config({ path: "./.env" });
 
 const app = express();
 
@@ -31,10 +32,9 @@ app.use(express.json());
 //initialize cookieparser s� vi kan anv�nda cookies i browsern - AL
 app.use(cookieParser());
 
+app.use(fileUpload());
+
 app.set('view engine', 'hbs');
-
-
-
 
 db.connect(function (err) {
     if (err) {
