@@ -70,9 +70,13 @@
         <div class="button_container" id="bc_leftandright">
 
             <div class="left">
-
-                <div>
-                    <img src="../fifflaren.jpg" id="checkmark_leg" alt="checkmark">
+                
+                <div class="avatar-ctn">
+                        {{#if user.image}}
+                        <img class="avatar" id="checkmark_leg" src="{{user.image}}" alt="User Profile Picture">
+                        {{else}}
+                        <img class="avatar" id="checkmark_leg" src="/fifflaren.jpg" alt="User Profile Picture">
+                        {{/if}}
                 </div>
 
                 <h3 class="accountName" id="accountName_leg"> {{user.name}} </h3>

@@ -385,6 +385,7 @@ hr.style-six {
 }
 
 #checkmark_leg {
+    height: 190px;
     margin-top: 10px;
     border-radius: 50%;
 }
@@ -399,7 +400,6 @@ hr.style-six {
 }
 
 .accountBox_leg {
-    
 }
 
 .accountName {
@@ -829,9 +829,10 @@ hr.style-six {
     }
 
     #accountText_leg {
-        font-size: 10px;
+        font-size: 12px;
         margin-top: 0;
         margin-bottom: 0;
+        margin-left: 100px;
     }
 
     #accountName_leg {

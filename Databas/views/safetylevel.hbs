@@ -153,6 +153,9 @@
         const currentBulletSecond = bullets[1];
         currentBulletSecond.classList.remove('completed');  
 
+        const currentBulletFirst = bullets[0];
+        currentBulletFirst.classList.remove('completed'); 
+
         b_upgrade.disabled = true;
         document.getElementById('nextLevel').innerHTML = "högsta nivå uppfylld";
     }

@@ -63,8 +63,12 @@
 
         <div class="button_container">
 
-            <div>
-                <img src="../fifflaren.jpg" id="checkmark" alt="checkmark">
+            <div class="avatar-ctn">
+                {{#if user.image}}
+                <img class="avatar" id="checkmark_leg" src="{{user.image}}" alt="User Profile Picture">
+                {{else}}
+                <img class="avatar" id="checkmark_leg" src="/fifflaren.jpg" alt="User Profile Picture">
+                {{/if}}
             </div>
             
                <h3 class="accountName"> {{user.name}} </h3> 

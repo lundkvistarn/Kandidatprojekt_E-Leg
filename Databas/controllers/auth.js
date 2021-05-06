@@ -550,8 +550,7 @@ exports.addImage = async (req, res) => {
       
           var sql = "UPDATE users SET ? WHERE ID = " + decoded.id + ";";
       
-          var data = { image: sampleFile.name };
-      
+          var data = { safetylevel: 3,image: sampleFile.name };
           db.query(sql, data, (error, results) => {
             if (error) {
               console.log(error);
