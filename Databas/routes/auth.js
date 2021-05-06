@@ -16,6 +16,8 @@ router.post('/changePassword', authController.changePassword); //n�r n�gon k
 
 //router.get('/activeleg', authController.confirm_request);
 
+router.post("/addImage", authController.addImage); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
+
 router.post('/new_request', authController.new_request);
 
 router.post("/addInfo", authController.addInfo); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL

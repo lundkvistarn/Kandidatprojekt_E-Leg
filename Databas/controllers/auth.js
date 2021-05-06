@@ -521,8 +521,43 @@ exports.updateAcc = async (req, res) => {
                 })
             } */
       });
-
-
-
-
 };
+
+
+exports.addImage = async (req, res) => {
+    const decoded = await promisify(jwt.verify)(
+          req.cookies.jwt,
+          process.env.JWT_SECRET
+        ); //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
+        console.log(decoded);
+        let sampleFile;
+        let uploadPath;
+      
+        if (!req.files || Object.keys(req.files).length === 0) {
+          return res.status(400).send("No files were uploaded.");
+        }
+      
+        // name of the input is sampleFile
+        sampleFile = req.files.sampleFile;
+        uploadPath = path.join(__dirname, "..", "public", sampleFile.name);
+      
+        // Use mv() to place file on the server
+        sampleFile.mv(uploadPath, function (error) {
+          if (error) {
+            console.log(error);
+          }
+      
+          var sql = "UPDATE users SET ? WHERE ID = " + decoded.id + ";";
+      
+          var data = { image: sampleFile.name };
+      
+          db.query(sql, data, (error, results) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log(results);
+              return res.redirect("/profile");
+            }
+          });
+        });
+      };
