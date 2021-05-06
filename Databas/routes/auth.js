@@ -20,6 +20,6 @@ router.post('/new_request', authController.new_request);
 
 router.post("/addInfo", authController.addInfo); //n�r n�gon klickar p� register k�rs funktionen register i auth.js - AL
 
-//router.post('/updateAcc', authController.updateAcc);
+router.post('/updateAcc', authController.updateAcc);
 
 module.exports = router; //exportar router - AL
