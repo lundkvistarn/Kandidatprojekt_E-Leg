@@ -62,32 +62,23 @@
         </div>  
 
         <div class="white_box">
-            <div id="ver" ss-container>
-                <div class="verifikation">
-                    <p>Identification inquiry <br>  From Penny </p>
-                    <div class="stroke"></div>
-                    <p>02:12</p>
-                </div>
-                <div class="verifikation">
-                    <p>Identification inquiry <br>  From Sam </p>
-                    <div class="stroke"></div>
-                    <p>15:00</p>
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Willy </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>  
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Calle </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>
-                </div>
-                <div class="verifikation" id="verifikation_ok">
-                    <p>Identification inquiry <br>  From Calle </p>
-                    <div class="stroke"></div>
-                    <p>OK!</p>
-                </div>
+            
+             <div id="ver" ss-container>
+
+                {{#each rec}}
+
+                    <!-- <div class="row"> {{this.senderID}} </div> -->
+
+                    <div class="verifikation">
+                        <p> Förfrågan från <br>
+                        {{this.receiverName}} </p>
+                        <div class="stroke"> </div>
+                        <p> {{this.datum}} </p> <!-- new Date(this.datum) -->
+                    </div>
+
+                {{/each}}
+
+
             </div>
 
             <form method="GET" action="/new_request">

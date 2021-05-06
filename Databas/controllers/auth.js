@@ -12,6 +12,29 @@ function readableDate(isostring) {
     return result
 }
 
+async function getName(id)  {
+        
+    return new Promise ((resolve, reject) => {
+        db.query("SELECT name FROM users WHERE ID=?", [id], (error, result) => {
+
+            if (!result) { //om ingen matchning finns
+               console.log("Inga matchningar.");
+            }
+        
+        for (let i = 0; i < result.length; i++) {
+            element = result[i].name;
+        }
+        
+        //const sender = sendername.toString();
+    
+        //console.log()
+        
+        resolve(element)
+
+        })
+    })   
+}
+
 
 //connectar till databasen
 const db = mysql.createConnection({
@@ -123,7 +146,7 @@ exports.isLoggedIn = async (req, res, next) => {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET) //j�mf�r userns cookie med l�senordet vi anv�nde f�r att skapa token vi har sparat i env
             console.log(decoded);
 
-            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], (error, result) => {
+            db.query('SELECT * FROM requests WHERE receiverID = ?', [decoded.id], async (error, result) => {
                 console.log(result);
 
                 if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
@@ -134,12 +157,54 @@ exports.isLoggedIn = async (req, res, next) => {
                 //this.accept(results[0]);     
                 //this.removeOldRequests(results[0])  
 
+                const setItem = async (item) => {
+                    item.senderName = await getName(item.senderID);
+                    item.datum = readableDate(item.datum)  
+                    return item
+                }
+
+                const unresolved = result.map((request)=>{ 
+                    return setItem(request)
+                })
+
+                req.lego = await Promise.all(unresolved)
+                console.log('resolving...')
+                // console.log(req.lego)
+                
+
+                /*
+
                 req.lego = result.map((request)=>{ 
                     //request.senderName = IDtoname(request.senderID);
                     request.senderName = 'fo' // <----------------- Här ska en funktion finnas = nameOfID(request.senderID)
                     request.datum = readableDate(request.datum)
                     return request
                 });
+
+                */
+            });
+
+            db.query('SELECT * FROM requests WHERE senderID = ?', [decoded.id], async (error, result) => {
+                console.log(result);
+
+                if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
+                    console.log("Du har inte skickat några requests.");        
+                }
+
+                const setItem = async (item) => {
+                    item.receiverName = await getName(item.receiverID);
+                    console.log("recname" + item.receiverName)
+                    item.datum = readableDate(item.datum)  
+                    return item
+                }
+
+                const unresolved = result.map((request)=>{ 
+                    return setItem(request)
+                })
+
+                req.rec = await Promise.all(unresolved)
+                console.log('resolving...')
+            
             });
 
             //check if the user still exists - AL
@@ -303,7 +368,7 @@ exports.new_request = async (req, res) => { //avsändare
                 } 
                 
                 console.log("Skickat");
-                res.render('request_sent');
+                res.redirect('/request_sent');
                 //this.sendRequest(result); //skickar request till den användaren som hittades
                 //return res.render('legitimera', {message: 'Request sent'})
             }
@@ -362,9 +427,8 @@ exports.addInfo = async (req, res) => {
           console.log(error);
         } else {
           console.log(results);
-          return res.render("profile", {
-            message: "Info added",
-          });
+          return res.redirect("/profile");
+         
         }
       });
     }

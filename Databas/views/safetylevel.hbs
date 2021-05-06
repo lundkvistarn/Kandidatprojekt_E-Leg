@@ -84,8 +84,8 @@
 
             </div>
 
-            <form method="GET" action="/addInfo ">
-                <button class="button" id="b_upgrade" type="submit"> Uppgradera till säkerhetsnivå: &nbsp;&nbsp; <h4 id="nextLevel"></h4> </button>
+            <form id="form_id" method="GET" action="/addInfo">
+                <button class="button" id="b_upgrade" type="submit" > Uppgradera till säkerhetsnivå: &nbsp;&nbsp; <h4 id="nextLevel"></h4> </button>
             </form>  
         </div>
 
@@ -135,12 +135,16 @@
         currentBullet.classList.add('completed');
         
     }
+
     if ( {{user.safetylevel}} == 2){
         const currentBullet = bullets[1];
         currentBullet.classList.add('completed');
 
         const currentBulletFirst = bullets[0];
-        currentBulletFirst.classList.remove('completed');   
+        currentBulletFirst.classList.remove('completed'); 
+
+        document.getElementById('form_id').action = 'addImage';
+
     }
     if ( {{user.safetylevel}} == 3){
         const currentBullet = bullets[2];

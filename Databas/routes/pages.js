@@ -54,7 +54,6 @@ router.get('/settings', authController.isLoggedIn, (req, res) => {
     } else {
         res.redirect('/login');
     }
-    
 });
 
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
@@ -74,14 +73,19 @@ router.get('/changepassword', authController.isLoggedIn, (req, res) => {
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
 router.get('/activeleg', authController.isLoggedIn, (req, res) => {
 
-    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
-    if (req.user) {
-        res.render('activeleg', {
-            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
-        });
-    } else {
-        res.redirect('/login');
-    }
+    setTimeout(() => {
+        //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+        if (req.user) {
+            console.log('THE RESULT!')
+            res.render('activeleg', {
+                user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+                ,rec: req.rec  //skickar med variabel för pending requests - ES
+            });
+        } else {
+            res.redirect('/login');
+        } 
+        }, 2000) // This is bad too bad!
+        
     
 });
 
@@ -159,15 +163,19 @@ router.get('/contact', authController.isLoggedIn, (req, res) => {
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
 router.get('/confirm_request', authController.isLoggedIn, (req, res) => {
 
+    setTimeout(() => {
     //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
     if (req.user) {
+        console.log('THE RESULT!')
+        console.log(req.lego)
         res.render('confirm_request', {
             user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
             ,lego: req.lego  //skickar med variabel för pending requests - ES
         });
-    } else {s
+    } else {
         res.redirect('/login');
     } 
+    }, 1000) // This is bad too bad!
     
 });
 
@@ -226,6 +234,19 @@ router.get('/addInfo', authController.isLoggedIn, (req, res) => {
   }
   
 });
+
+router.get('/addImage', authController.isLoggedIn, (req, res) => {
+
+    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+    if (req.user) {
+        res.render('addImage', {
+            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+        });
+    } else {
+        res.redirect('/login');
+    }
+    
+  });
 
 router.get('/updateAcc', authController.isLoggedIn, (req, res) => {
 
