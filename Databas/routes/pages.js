@@ -110,7 +110,8 @@ router.get('/request_sent', authController.isLoggedIn, (req, res) => {
     //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
     if (req.user) {
         res.render('request_sent', {
-            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+            user: req.user
+            ,rec: req.rec //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
         });
     } else {
         res.redirect('/login');
