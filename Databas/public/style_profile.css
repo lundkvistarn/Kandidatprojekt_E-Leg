@@ -126,6 +126,10 @@ nav li a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.308), 0 6px 20px 0 rgba(0, 0, 0, 0.267);  
 }
 
+#bc_account {
+    height: 450px;
+}
+
 .left {
     margin: 30px;
     display: flex;
@@ -190,6 +194,11 @@ nav li a:hover {
     color: #ddd;
 }
 
+#wc_stable {
+    top: 0;
+    margin-top: 120px   ;
+}
+
 /* ---------- Förfrågningar --------------*/
 
 .white_box {
@@ -221,12 +230,21 @@ nav li a:hover {
 }
 
 #ver {
-    height: 400px; 
+    height: 44vh; 
     width: 600px;
     overflow-y: scroll;
     overflow-X: hidden; 
-    
+    margin-top: 70Px;
 }
+
+#ver2 {
+    height: 1000px; 
+    width: 600px;
+    overflow-y: scroll;
+    overflow-X: hidden; 
+    margin-top: 10px;
+}
+
 #ver::-webkit-scrollbar-track
 {
 	border-radius: 10px;
@@ -737,6 +755,10 @@ hr.style-six {
         margin: -50px 0 0 -170px;
     }
 
+    #wc_stable {
+        margin-top: 150px;
+    }
+
     .accountBox{
         width: 295px;
         height: 150px;
@@ -788,6 +810,11 @@ hr.style-six {
     }
 
     #ver {
+        /*position*/
+        width: 340px;
+    }
+
+    #ver2 {
         /*position*/
         width: 340px;
     }

@@ -49,9 +49,10 @@
         </div>
     </div>
     
-    <div class="getback_container">
+    {{!--  <div class="getback_container">
         <a href="/profile"> <i class="fa fa-reply" style="font-size:36px"> </i> Tillbaka </a>
-    </div>
+    </div>--}}
+    
     
     <div class="entire_screen">
 
@@ -61,7 +62,7 @@
             <a href="/account" id="active_breadcrumb"> Konto </a></h6>
         </div>
 
-        <div class="button_container">
+        <div class="button_container" id="bc_account">
 
             <div class="avatar-ctn">
                 {{#if user.image}}
@@ -88,7 +89,7 @@
 
         </div>
 
-        <div class="information_container">
+        <div class="information_container" id="ic_leg">
             <div class="line">
                 <hr class="style-six"> </hr>
             </div>
