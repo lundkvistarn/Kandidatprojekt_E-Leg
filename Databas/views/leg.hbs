@@ -26,9 +26,9 @@
         <div class="logowithtext_nav">
             <a href="/profile"><img src="../logo_identi.svg" alt="this is our logo" id="logo_nav" /></a>
             <h4 id="textLogo"> Identify </h4>
-        </div> 
-        
-    
+        </div>
+
+
 
         <ul>
             {{#if user}}
@@ -70,13 +70,13 @@
         <div class="button_container" id="bc_leftandright">
 
             <div class="left">
-                
+
                 <div class="avatar-ctn">
-                        {{#if user.image}}
-                        <img class="avatar" id="checkmark_leg" src="{{user.image}}" alt="User Profile Picture">
-                        {{else}}
-                        <img class="avatar" id="checkmark_leg" src="/fifflaren.jpg" alt="User Profile Picture">
-                        {{/if}}
+                    {{#if user.image}}
+                    <img class="avatar" id="checkmark_leg" src="{{user.image}}" alt="User Profile Picture">
+                    {{else}}
+                    <img class="avatar" id="checkmark_leg" src="/fifflaren.jpg" alt="User Profile Picture">
+                    {{/if}}
                 </div>
 
                 <h3 class="accountName" id="accountName_leg"> {{user.name}} </h3>
@@ -96,6 +96,7 @@
                             {{user.address}} </p>
                         <p class="accountText_leg"> <i id="iSpace_leg" class="fa fa-id-card fa-fw"> </i>
                             {{user.personid}} </p>
+                        
 
                     </div>
 
@@ -142,7 +143,10 @@
             qr = new QRious({
                 element: document.getElementById('qr-code'),
                 size: 200,
-                value: "Richard Sven Olle Gotthard prnr: 19970810-1337"
+                // Visar vad som skrivs ut i qr- kod - RG
+                value: "Namn: " + "{{user.name}}" + " Personnummer: " + "{{user.personid}}" + " Säkerhetsnivå: " + "{{user.safetylevel}}"
+                // value: "Namn: " + "{{user.name}}" + "Personnummer: " + "{{user.personID}}" //+ " GUID: " + uuidv4()
+                // GUID är till för att skapa en unik kod för användaren som  inte ska kunna dupliceras. - RG 
             });
         })();
     </script>
@@ -169,11 +173,25 @@
 </script>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+
+<script>
+    //GUID generator - RG
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
 
 </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+    </script>
 
 <script>
 
@@ -197,7 +215,7 @@
         $('#' + newID).css("-moz-transition-duration", time);
         $('#' + newID).css("-o-transition-duration", time);
         $('#' + newID).css("transition-duration", time);
-        setTimeout(function () { $('#' + newID).addClass('lightSweepEnd'); }, 20);
+        setTimeout(function () { $('#' + newID).addClass('lightSweepEnd'); }, 1);
         $('#' + newID).on("webkitTransitionEnd otransitionend oTransitionEnd transitionend", function () { $('#' + newID).remove(); });
 
     }
@@ -211,8 +229,8 @@
 
     $(window).click('load', function () {
 
-        lightSweep('#checkmark_leg', '3s');
-
+        lightSweep('#bc_leftandright', '1s');
+    // Ser till att göra en lightsweep över hela leg kortet. Ändrars beroende på vilket id som läggs in och tiden kan justeras med andra parametern - RG
     });
 
 </script>

@@ -129,20 +129,9 @@
 
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
-                            <script>
-                                /* JS comes here */
-                                var qr;
-                                (function () {
-                                    // TAr in var. 
-                                    //Create QR w. qr-text
-                                    qr = new QRious({
-                                        element: document.getElementById('qr-code'),
-                                        size: 200,
-                                        value: "Richard Sven Olle Gotthard prnr: 19970810-1337"
-                                    });
-                                })();
+                            
 
-                            </script>
+                            
                         </div>
 
                     </div>
@@ -162,7 +151,7 @@
             qr = new QRious({
                 element: document.getElementById('qr-code'),
                 size: 200,
-                value: "Richard Sven Olle Gotthard prnr: 19970810-1337"
+                value: "Namn: " + "{{user.name}}" + "Personnummer: " + "{{user.personID}}" +" GUID: " + uuidv4()
             });
         })();
 
