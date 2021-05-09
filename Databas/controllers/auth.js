@@ -9,7 +9,7 @@ const path = require('path');
 function readableDate(isostring) {
         
     const date = new Date(isostring) 
-    const result = date.getDate() + '/' + (date.getMonth() + 1) + ' - ' + date.getHours() + ':' + date.getMinutes()
+    const result = date.getDate() + '/' + (date.getMonth() + 1) + ' - ' + (date.getHours() + 2) + ':' + date.getMinutes()
     return result
 }
 
