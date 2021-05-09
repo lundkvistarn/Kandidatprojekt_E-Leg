@@ -501,6 +501,28 @@ hr.style-six {
     font-family: 'Montserrat', sans-serif;
 }
 
+.button .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px 13px;
+    border-radius: 50%;
+    background-color: rgb(179, 0, 0);
+    font-size: 14px;
+    color: white;
+}
+
+.button .badge2 {
+    position: absolute;
+    top: 109px;
+    right: 5px;
+    padding: 7px 13px;
+    border-radius: 50%;
+    background-color: rgb(179, 0, 0);
+    font-size: 14px;
+    color: white;
+}
+
 #b_green {
     background-color: #439928;
     border: 1px solid #439928;

@@ -59,15 +59,15 @@
 
         <div class="white_box">
             
-             <div id="ver" ss-container>
+             <div id="ver2" ss-container>
 
                 {{#each rec}}
 
                     <!-- <div class="row"> {{this.senderID}} </div> -->
 
                     <div class="verifikation">
-                        <p> Skickad förfrågan till <br>
-                        {{this.receiverName}} </p>
+                        <p> Skickad förfrågan till <br> 
+                        {{this.receiverName}}, säkerhetsnivå: {{this.receiverSafety}}</p>
                         <div class="stroke"> </div>
                         <p> {{this.datum}} </p> <!-- new Date(this.datum) -->
                     </div>

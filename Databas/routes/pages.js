@@ -28,18 +28,20 @@ router.get('/login', (req, res) => {
 //n�r man g�r till profile sidan renderas profile.hbs om funktionen isLoggedIn godk�nner - AL
 router.get('/profile', authController.isLoggedIn, (req, res) => {
 
-    //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
-    if (req.user) {
-        res.render('profile', {
-            user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
-            ,lego: req.lego  //skickar med variabel för pending requests - ES
-        });
-
-        
-
-    } else {
-        res.redirect('/login');
-    }
+    setTimeout(() => {
+        //Om n�gon f�rs�ker g� in p� profile page utan en token blir den redirectad till login sidan - AL
+        if (req.user) {
+            console.log('THE RESULT!')
+            console.log(req.lego)
+            res.render('profile', {
+                user: req.user //skickar varibeln user s� den kan anv�ndas i profile.hbs - AL
+                ,lego: req.lego 
+                ,rec: req.rec  //skickar med variabel för pending requests - ES
+            });
+        } else {
+            res.redirect('/login');
+        } 
+        }, 4000) // This is bad too bad!
     
 });
 

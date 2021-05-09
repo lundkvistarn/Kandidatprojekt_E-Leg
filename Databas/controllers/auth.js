@@ -36,6 +36,30 @@ async function getName(id)  {
     })   
 }
 
+async function getSafety(id)  {
+        
+    return new Promise ((resolve, reject) => {
+        db.query("SELECT safetylevel FROM users WHERE ID=?", [id], (error, result) => {
+
+            if (!result) { //om ingen matchning finns
+               console.log("Inga matchningar.");
+            }
+        
+        for (let i = 0; i < result.length; i++) {
+            element = result[i].safetylevel;
+        }
+        
+        //const sender = sendername.toString();
+    
+        //console.log()
+        
+        resolve(element)
+
+        })
+    })   
+}
+
+
 
 //connectar till databasen
 const db = mysql.createConnection({
@@ -151,9 +175,13 @@ exports.isLoggedIn = async (req, res, next) => {
                 console.log(result);
 
                 if (!result) { //om mailen inte finns eller l�senordet �r fel - AL
-                    console.log("Inga requests.");     
-                    //  return next();      
+                    console.log("Inga requests.");        
                 }
+
+                var thisManys = 0;
+                var thisMany = 0;
+                thisMany += thisManys + result.length;
+                
                 //this.decline(results[0]); 
                 //this.accept(results[0]);     
                 //this.removeOldRequests(results[0])  
@@ -161,6 +189,9 @@ exports.isLoggedIn = async (req, res, next) => {
                 const setItem = async (item) => {
                     item.senderName = await getName(item.senderID);
                     item.datum = readableDate(item.datum)  
+                    item.senderSafety = await getSafety(item.senderID);
+                    //item.howmanySender = await getHowMany(item.senderID);
+                    item.howmanySender = thisMany;
                     return item
                 }
 
@@ -192,10 +223,18 @@ exports.isLoggedIn = async (req, res, next) => {
                     console.log("Du har inte skickat några requests.");        
                 }
 
+
+                var thisManys = 0;
+                var thisMany = 0;
+                thisMany += thisManys + result.length;
+            
+
                 const setItem = async (item) => {
                     item.receiverName = await getName(item.receiverID);
                     console.log("recname" + item.receiverName)
                     item.datum = readableDate(item.datum)  
+                    item.receiverSafety = await getSafety(item.senderID);
+                    item.howmanyReceiver = thisMany;
                     return item
                 }
 
@@ -204,7 +243,7 @@ exports.isLoggedIn = async (req, res, next) => {
                 })
 
                 req.rec = await Promise.all(unresolved)
-                console.log('resolving...')
+                console.log(req)
             
             });
 
