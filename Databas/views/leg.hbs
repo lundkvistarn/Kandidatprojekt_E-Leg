@@ -138,14 +138,14 @@
     <script>
         var qr;
         (function () {
-            // Tar in var. 
+            // TAr in var. 
             //Create QR w. qr-text
             qr = new QRious({
                 element: document.getElementById('qr-code'),
                 size: 200,
                 // Visar vad som skrivs ut i qr- kod - RG
-                //value: "Namn: " + {{user.name}} + " Personnummer: " + {{user.personid}} + " Säkerhetsnivå: " + {{user.safetylevel}} + " GUID: " + uuidv4()
-                value: "Namn: " + "{{user.name}}" + "Personnummer: " + "{{user.personID}}" //+ " GUID: " + uuidv4()
+                value: "Namn: " + "{{user.name}}" + " Personnummer: " + "{{user.personid}}" + " Säkerhetsnivå: " + "{{user.safetylevel}}"
+                // value: "Namn: " + "{{user.name}}" + "Personnummer: " + "{{user.personID}}" //+ " GUID: " + uuidv4()
                 // GUID är till för att skapa en unik kod för användaren som  inte ska kunna dupliceras. - RG 
             });
         })();
